@@ -6,7 +6,7 @@ function RegisterForm() {
     // make it so that the GET on get genres once as components loads
     useEffect(() => {
       //dispatch the saga 
-      dispatch({ type: ''})
+      dispatch({ type: 'FETCH_DISTANCE'})
   }, []);
 
   const [username, setUsername] = useState('');

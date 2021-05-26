@@ -14,11 +14,15 @@ function UserPage() {
     dispatch({ type: 'FETCH_TASK' });
 }, []);
 
+const handleTask = () => {
+  dispatch({type: 'FETCH_TASK'})
+} 
+
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
-      <section>
+      <form>
         {task.map(task => {
           return (
             <ul key={task.id}>
@@ -26,7 +30,8 @@ function UserPage() {
             </ul>
           )
         })}
-      </section>
+      </form>
+      <button onClick={handleTask}>Task</button>
       <TaskGenerator/>
       <br></br>
       <LogOutButton className="btn" />

@@ -1,15 +1,18 @@
 import axios from 'axios';
-import { put} from 'redux-saga/effects';
+import { put, takeLatest} from 'redux-saga/effects';
 
 function* fetchTask (){
     try {
         const task = yield axios.get('/api/task')
         yield put({ type: 'SET_TASK', payload: task.data})
     } catch (error ){
-        console.log('Error with distance fetching request', error);
+        console.log('Error with task fetching request', error);
         
     }
 }
 
+function* taskSaga() {
+    yield takeLatest('FETCH_TASK', fetchTask);
+  }
 
-export default fetchTask;
+export default taskSaga;
