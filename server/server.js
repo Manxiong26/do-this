@@ -26,7 +26,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/distance', distanceRouter)
-app.use('./api/task/', taskRouter)
+app.use('/api/task', taskRouter)
 
 // Serve static files
 app.use(express.static('build'));

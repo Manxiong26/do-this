@@ -4,8 +4,10 @@ const pool = require('../modules/pool')
 
 router.get('/', (req, res) => {
     let sqlText = `SELECT * FROM task;`;
+    
     pool.query(sqlText)
     .then((result) => {
+        console.log(sqlText);
         res.send(result.rows);
     })
     .catch((err) => {
