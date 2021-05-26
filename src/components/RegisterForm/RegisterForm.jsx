@@ -4,6 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [zip, setZip] = useState('');
+  const [distance, setDistance] = useState('');
+  const [hobbies, setHobbies] = useState('');
+
+
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
@@ -15,6 +21,10 @@ function RegisterForm() {
       payload: {
         username: username,
         password: password,
+        user_email: email,
+        user_zip: zip,
+        distance: distance,
+        hobbies: hobbies,
       },
     });
   }; // end registerUser
@@ -48,6 +58,59 @@ function RegisterForm() {
             value={password}
             required
             onChange={(event) => setPassword(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="email">
+          Email:
+          <input
+            type="email"
+            name="email"
+            value={email}
+            required
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="zip">
+          Zip Code:
+          <input
+            type="zip"
+            name="zip"
+            value={zip}
+            required
+            onChange={(event) => setZip(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="distance">
+          Distance:
+          <select
+            type="distance"
+            name="distance"
+            value={distance}
+            required
+            onChange={(event) => setDistance(event.target.value)}
+          >
+            <option>Choose One</option>
+            <option>local</option>
+            <option>Neighboring State</option>
+            <option>Anywhere</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label htmlFor="hobbies">
+          Hobbies:
+          <input
+            type="hobbies"
+            name="hobbies"
+            value={hobbies}
+            required
+            onChange={(event) => setHobbies(event.target.value)}
           />
         </label>
       </div>
