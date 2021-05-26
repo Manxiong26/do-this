@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 function RegisterForm() {
+
+    // make it so that the GET on get genres once as components loads
+    useEffect(() => {
+      //dispatch the saga 
+      dispatch({ type: ''})
+  }, []);
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -105,13 +112,18 @@ function RegisterForm() {
       <div>
         <label htmlFor="hobbies">
           Hobbies:
-          <input
+          <select
             type="hobbies"
             name="hobbies"
             value={hobbies}
             required
             onChange={(event) => setHobbies(event.target.value)}
-          />
+          >
+            <option>Choose One</option>
+            <option>Outdoor</option>
+            <option>Indoor</option>
+
+          </select>
         </label>
       </div>
       <div>
