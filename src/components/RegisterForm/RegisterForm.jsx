@@ -14,11 +14,13 @@ function RegisterForm() {
   const [email, setEmail] = useState('');
   const [zip, setZip] = useState('');
   const [distance, setDistance] = useState('');
-  const [hobbies, setHobbies] = useState('');
+  
 
 
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
+
+  const distances = useSelector( (store) => store.distance)
 
   const registerUser = (event) => {
     event.preventDefault();
@@ -31,7 +33,6 @@ function RegisterForm() {
         user_email: email,
         user_zip: zip,
         distance: distance,
-        hobbies: hobbies,
       },
     });
   }; // end registerUser
@@ -96,36 +97,21 @@ function RegisterForm() {
         <label htmlFor="distance">
           Distance:
           <select
-            type="distance"
-            name="distance"
-            value={distance}
             required
             onChange={(event) => setDistance(event.target.value)}
           >
             <option>Choose One</option>
-            <option>local</option>
+            <option>Local</option>
             <option>Neighboring State</option>
             <option>Anywhere</option>
+            {/* {distances.map(item => {
+              return <option key={item.id} value={item.id}>{item.name}</option>
+            })} */}
+            
           </select>
         </label>
       </div>
-      <div>
-        <label htmlFor="hobbies">
-          Hobbies:
-          <select
-            type="hobbies"
-            name="hobbies"
-            value={hobbies}
-            required
-            onChange={(event) => setHobbies(event.target.value)}
-          >
-            <option>Choose One</option>
-            <option>Outdoor</option>
-            <option>Indoor</option>
 
-          </select>
-        </label>
-      </div>
       <div>
         <input className="btn" type="submit" name="submit" value="Register" />
       </div>
