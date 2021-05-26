@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 
 function* fetchDistance (){
     try {
@@ -11,8 +11,6 @@ function* fetchDistance (){
     }
 }
 
-function* distanceSage() {
-    yield takeLatest('FETCH_DISTANCE', fetchDistance);
-  }
 
-export default distanceSage;
+
+export default fetchDistance;

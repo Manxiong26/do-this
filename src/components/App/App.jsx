@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import TaskList from '../TaskList/TaskList';
 
 import './App.css';
 
@@ -101,6 +102,14 @@ function App() {
           >
             <LandingPage />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/taskList"
+          >
+            <TaskList />
+          </ProtectedRoute>
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

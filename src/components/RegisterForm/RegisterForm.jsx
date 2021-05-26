@@ -101,12 +101,12 @@ function RegisterForm() {
             onChange={(event) => setDistance(event.target.value)}
           >
             <option>Choose One</option>
-            <option>Local</option>
+            {/* <option>Local</option>
             <option>Neighboring State</option>
-            <option>Anywhere</option>
-            {/* {distances.map(item => {
+            <option>Anywhere</option> */}
+            {distances.map(item => {
               return <option key={item.id} value={item.id}>{item.name}</option>
-            })} */}
+            })}
             
           </select>
         </label>
