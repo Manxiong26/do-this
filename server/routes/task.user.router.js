@@ -20,6 +20,7 @@ const {
 // })
 // })
 
+
 // router.get('/', (req, res) => {
 //     // let sqlText = `SELECT * FROM task;`;
 //     let sqlText = `SELECT * FROM task_user;`;
@@ -85,13 +86,11 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 router.put('/:id', rejectUnauthenticated, (req, res) => {
-    console.log('UPDATING TASK AS COMPLETE', req.body );
-    let idToUpdate = req.user.id;
-    let completed = req.body.completed
-    console.log('CHECKING THE REQQQQQQQ', req);
+    console.log('UPDATING TASK AS COMPLETE', req.params );
+    let idToUpdate = req.params.id;
     
     let sqlText = `UPDATE task_user SET completed = true WHERE id = $1;`
-    pool.query(sqlText, [completed, idToUpdate])
+    pool.query(sqlText, [idToUpdate])
     .then((result) => {
         console.log(sqlText);
         res.sendStatus(200)

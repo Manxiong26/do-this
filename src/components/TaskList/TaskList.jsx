@@ -25,7 +25,7 @@ console.log('CHECKING TASKS REDUCERS',tasks);
                     <button onClick={() => 
                         dispatch({ type: "DELETE_TASK", payload: task.id})}>Delete</button>
                     <button onClick={() => 
-                    dispatch({type: 'UPDATE_COMPLETED', payload: task.completed })}>Complete</button>
+                    dispatch({type: 'UPDATE_COMPLETE', payload: task.id })}>Complete</button>
                     <br/>
                     <button>Add Comments</button>
                     </li>
