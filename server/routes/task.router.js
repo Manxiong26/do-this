@@ -25,7 +25,7 @@ router.get('/random', (req, res) => {
     let sqlText = `SELECT *
     FROM  (
        SELECT DISTINCT 1 + trunc(random() * 10)::integer AS id
-       FROM   generate_series(1, 10) g
+       FROM   generate_series(1, 1) g
        ) r
     JOIN   task USING (id)
     LIMIT  1;`;

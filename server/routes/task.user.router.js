@@ -37,7 +37,7 @@ const {
 router.get('/', (req, res) => {
     // let sqlText = `SELECT * FROM task;`;
     let sqlText = `
-    SELECT user_id, task.name_task, task.task_description, task_user.id FROM task
+    SELECT user_id, task.name_task, task.task_description, completed, task_user.id FROM task
     JOIN task_user ON task_user.task_id = task.id
     WHERE user_id = ${req.user.id};`;
     pool.query(sqlText)
@@ -88,8 +88,19 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
     console.log('UPDATING TASK AS COMPLETE', req.body );
     let idToUpdate = req.user.id;
     let completed = req.body.completed
-    let sqlText = ``
-})
+    console.log('CHECKING THE REQQQQQQQ', req);
+    
+    let sqlText = `UPDATE task_user SET completed = true WHERE id = $1;`
+    pool.query(sqlText, [completed, idToUpdate])
+    .then((result) => {
+        console.log(sqlText);
+        res.sendStatus(200)
+    })
+    .catch((err) => {
+        console.log('ERROR making database update', err);
+        res.sendStatus(500)
+    })
+});
 
 
 module.exports = router

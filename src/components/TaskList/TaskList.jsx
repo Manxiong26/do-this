@@ -9,9 +9,10 @@ function TaskList(){
         dispatch({ type: 'FETCH_TASK' });
     }, []);
 
-const complete = () => {
-    console.log('complete');
-}
+// const complete = (task) => {
+//     console.log('complete');
+//     dispatch({type: 'UPDATE_COMPLETED', payload: task.id })
+// }
 
     const tasks = useSelector(store => store.task)
 console.log('CHECKING TASKS REDUCERS',tasks);
@@ -23,7 +24,8 @@ console.log('CHECKING TASKS REDUCERS',tasks);
                     <li key={task.id}>{task.task_description}
                     <button onClick={() => 
                         dispatch({ type: "DELETE_TASK", payload: task.id})}>Delete</button>
-                    <button onClick={complete}>Complete</button>
+                    <button onClick={() => 
+                    dispatch({type: 'UPDATE_COMPLETED', payload: task.completed })}>Complete</button>
                     <br/>
                     <button>Add Comments</button>
                     </li>
