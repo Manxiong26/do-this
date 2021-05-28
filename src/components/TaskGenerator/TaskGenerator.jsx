@@ -1,38 +1,63 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
 
 function TaskGenerator(){
 
     const history = useHistory();
     const dispatch = useDispatch();
 
+
+
     useEffect(() => {
-        dispatch({ type: 'FETCH_TASK' });
+        dispatch({ type: 'FETCH_RANDOM_TASK' });
+        dispatch({type: 'ADD_TASK', payload: task});
     }, []);
 
-    const task = useSelector((store) => store.task)
+  //   useEffect(() => {
+  //     setNewTask(task);
+  // }, [task]);
 
-const handleAccept = () => {
+    
+
+    // const [user, setUser] = useState(0);
+    // const [taskId, setTaskId] = useState(0);
+    // const [userTask, setUserTask] = useState('');
+    // const [description, setDescription] = useState('');
+
+    // const [newTask, setNewTask] = useState({});
+
+    // {user_id: user, task_id: taskId, name_task: userTask, task_description: description}
+
+    const task = useSelector((store) => store.randomTaskReducer)
+console.log('CHECKING TASK IN THE TASK',task);
+console.log('CHECKING NEW TASK!!!!!!!', task);
+
+const handleAccept = (action) => {
+  
+  dispatch({type: 'ADD_TASK', payload: task})
     history.push('/taskList')
 }
+
 const handleTask = () => {
-    dispatch({type: 'FETCH_TASK'})
+    dispatch({type: 'FETCH_RANDOM_TASK'})
+    
   } 
     return(
         <>
 
 <form onSubmit={handleAccept}>
-        {task.map(task => {
-          return (
-            <ul key={task.id}>
-              <li>{task.name_task}: {task.task_description}</li>
-            </ul>
-          )
-        })}
-        <button type="submit">Accept</button>
+        
+            <div key={task.id}>
+              <p>{task.name_task}: {task.task_description}! </p>
+              <p>Address is: </p>
+              {task.location_id}
+            </div>
+      <button value="submit">Accept</button>
       </form>
-      <button onClick={handleTask}>Task</button>
+      
+      <button onClick={handleTask}>Reject</button>
             
         </>
     )

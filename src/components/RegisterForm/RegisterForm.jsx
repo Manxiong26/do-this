@@ -6,21 +6,16 @@ function RegisterForm() {
     // make it so that the GET on get genres once as components loads
     useEffect(() => {
       //dispatch the saga 
-      dispatch({ type: 'FETCH_DISTANCE'})
   }, []);
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [zip, setZip] = useState('');
-  const [distance, setDistance] = useState('');
-  
 
 
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
-  const distances = useSelector( (store) => store.distance)
 
   const registerUser = (event) => {
     event.preventDefault();
@@ -31,8 +26,6 @@ function RegisterForm() {
         username: username,
         password: password,
         user_email: email,
-        user_zip: zip,
-        distance: distance,
       },
     });
   }; // end registerUser
@@ -81,37 +74,6 @@ function RegisterForm() {
           />
         </label>
       </div>
-      <div>
-        <label htmlFor="zip">
-          Zip Code:
-          <input
-            type="zip"
-            name="zip"
-            value={zip}
-            required
-            onChange={(event) => setZip(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="distance">
-          Distance:
-          <select
-            required
-            onChange={(event) => setDistance(event.target.value)}
-          >
-            <option>Choose One</option>
-            {/* <option>Local</option>
-            <option>Neighboring State</option>
-            <option>Anywhere</option> */}
-            {distances.map(item => {
-              return <option key={item.id} value={item.id}>{item.name}</option>
-            })}
-            
-          </select>
-        </label>
-      </div>
-
       <div>
         <input className="btn" type="submit" name="submit" value="Register" />
       </div>

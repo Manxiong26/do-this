@@ -21,13 +21,11 @@ router.post('/register', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
   const email = req.body.user_email;
-  const zip = req.body.user_zip;
-  const distance = req.body.distance;
   
-  const queryText = `INSERT INTO "user" ("username", "password", "user_email", "user_zip", "distance")
-    VALUES ($1, $2, $3, $4, $5) RETURNING id`;
+  const queryText = `INSERT INTO "user" ("username", "password", "user_email")
+    VALUES ($1, $2, $3) RETURNING id`;
   pool
-    .query(queryText, [username, password, email, zip, distance])
+    .query(queryText, [username, password, email])
     .then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('User registration failed: ', err);
