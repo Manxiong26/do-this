@@ -4,6 +4,7 @@ import user from './user.reducer';
 import distance from './distance.reducer';
 import randomTaskReducer from './randomTask.reducer';
 import task from './task.reducer';
+import completed from './completed.reducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   distance,
   task,
   randomTaskReducer,
+  completed,
 });
 
 export default rootReducer;

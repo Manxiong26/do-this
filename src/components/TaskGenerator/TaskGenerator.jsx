@@ -12,7 +12,7 @@ function TaskGenerator(){
 
     useEffect(() => {
         dispatch({ type: 'FETCH_RANDOM_TASK' });
-        dispatch({type: 'ADD_TASK', payload: task});
+        
     }, []);
 
   //   useEffect(() => {
