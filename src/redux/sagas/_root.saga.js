@@ -8,7 +8,7 @@ import addTaskSaga from './addTask.saga'
 import taskSaga from './task.saga'
 import deleteSaga from './delete.saga'
 import updateCompleteSaga from './completed.saga'
-
+import addCommentSaga from './addComment.saga'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -28,5 +28,6 @@ export default function* rootSaga() {
     taskSaga(),
     deleteSaga(),
     updateCompleteSaga(),
+    addCommentSaga()
   ]);
 }
