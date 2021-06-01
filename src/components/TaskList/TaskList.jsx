@@ -9,15 +9,8 @@ function TaskList() {
         dispatch({ type: 'FETCH_TASK' });
     }, []);
 
-    const completes = useSelector(store => store.completed)
+
     const tasks = useSelector(store => store.task)
-
-    //const [complete, setCompleted] = useState(null)
-
-    // const completed = () => {
-    //     console.log('complete');
-    //     setCompleted(true)
-    // }
 
 
 
