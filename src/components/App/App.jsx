@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import TaskList from '../TaskList/TaskList';
+import PutNote from '../PutNote/PutNote'
 
 import './App.css';
 
@@ -109,7 +110,12 @@ function App() {
           >
             <TaskList />
           </ProtectedRoute>
-
+          <ProtectedRoute
+            exact
+            path="/note/:id"
+          >
+            <PutNote />
+          </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

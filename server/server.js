@@ -12,6 +12,7 @@ const userRouter = require('./routes/user.router');
 const distanceRouter = require('./routes/distance.router');
 const taskRouter = require('./routes/task.router')
 const taskUserRouter = require('./routes/task.user.router')
+const noteRouter = require('./routes/note.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -29,6 +30,7 @@ app.use('/api/user', userRouter);
 app.use('/api/distance', distanceRouter)
 app.use('/api/task', taskRouter)
 app.use('/api/task_user', taskUserRouter)
+app.use('/api/note', noteRouter)
 
 // Serve static files
 app.use(express.static('build'));
