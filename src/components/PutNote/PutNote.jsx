@@ -14,12 +14,12 @@ function AddNote() {
     const [note, setNote] = useState('');
 
     const task = useSelector(store => store.note)
-    console.log('CHECKING THE TASK NOTE!!!', task);
+    // console.log('CHECKING THE TASK NOTE!!!', task);
 
     let { id } = useParams();
 
     useEffect(() => {
-        console.log('In useEffect param', id);
+        // console.log('In useEffect param', id);
         dispatch({ type: 'FETCH_NOTE', payload: id })
 
     }, [])
@@ -32,13 +32,14 @@ function AddNote() {
         setNote(task.notes);
     }
 
-    const saveEdit = () => {
+    const saveEdit = (event) => {
+        event.preventDefault();
         const updatedNote = {
             id: task.id, //user cant edit, getting form reducer
             notes: note, // Take the there from state, user may have changed
         }
 
-        console.log('UPDATED NOTE INFO', updatedNote);
+        // console.log('UPDATED NOTE INFO', updatedNote);
         dispatch({ type: 'UPDATE_NOTE', payload: updatedNote })
 
         // Turn off editMode
@@ -47,18 +48,20 @@ function AddNote() {
         //Navigate back, because this page wont refresh data from server
         //history.push('/taskList');
 
-
     }
+
+const goBack = () => {
+    console.log('Go Back taskList');
+    history.push('/taskList')
+}
 
     return (
         <>
             {/* {JSON.stringify(note)} */}
+        <form onSubmit={saveEdit}>
+            
 
-            {editMode === false &&
-                <button onClick={handleEdit}>Edit</button>
-            }
-
-            { task && task.notes && editMode ?
+            { task  && editMode ?
                 <div>
                     <label>Note:</label>
                     <input type="text" value={note}
@@ -66,13 +69,19 @@ function AddNote() {
                 </div>
                 :
                 <div>
-                    <label>Note:</label>
+                    <label>Note: </label>
                     <span>{task.notes}</span>
                 </div>
             }
-            {editMode &&
-                <button onClick={saveEdit}>Save</button>
+            {editMode === false &&
+                <button onClick={handleEdit}>Edit</button>
             }
+            {editMode &&
+                <button type="submit">Save</button>
+            }
+            
+            </form>
+            <button onClick={goBack}>Cancel</button>
         </>
     )
 }
