@@ -1,6 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './TaskList.css'
+
+//material UI
+import Paper from "@material-ui/core/Paper";
+import yellow from "@material-ui/core/colors/yellow";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        maxWidth: 345,
+        margin: theme.spacing(5),
+    },
+    customBorderRadius: {
+      borderRadius: 30,
+        margin: theme.spacing(5),
+        width: theme.spacing(100),
+        height: theme.spacing(30),
+    }
+  }));
 
 function TaskList() {
     const dispatch = useDispatch();
@@ -28,10 +55,12 @@ function TaskList() {
     // }
 
     console.log('CHECKING TASKS REDUCERS', tasks);
+
+    const classes = useStyles();
     return (
         <>
             <h1>TaskList</h1>
-            <ul>
+            {/* <ul>
                 {tasks.map(task =>
                     <li key={task.id}>{task.task_description}
                         <button onClick={() =>
@@ -49,7 +78,77 @@ function TaskList() {
                     </li>
                 )}
 
-            </ul>
+            </ul> */}
+            {/* <div>
+{tasks.map(task =>
+            <Paper className={classes.customBorderRadius} elevation={15}>
+        <Box p={6}>
+          <Typography variant="h5">Task</Typography>
+          <Typography>
+                    <span key={task.id}>{task.task_description}
+                        <button onClick={() =>
+                            dispatch({ type: "DELETE_TASK", payload: task.id })}>Delete</button>
+                        {task.completed === null &&
+                        <button onClick={ () => dispatch({ type: 'UPDATE_COMPLETE', payload: task.id })}>Complete</button>}
+                        <br/>
+                        
+                            <label>My Adventure:</label>
+                            <span>{task.notes}</span>
+                        
+                        <br/>
+                        <span><button onClick={(event) => viewNote(event, task)}>view</button></span>
+
+                    </span>
+          </Typography>
+        </Box>
+      </Paper>
+     )} 
+     </div> */}
+<div className="grid">
+{tasks.map(task =>
+     <Card className={classes.root} key={task.id}>
+      <CardActionArea>
+        {/* <CardMedia
+          component="img"
+          alt="Contemplative Reptile"
+          height="140"
+          image="/static/images/cards/contemplative-reptile.jpg"
+          title="Contemplative Reptile"
+          onClick={(event) => viewNote(event, task)}
+        /> */}
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Task
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          {task.name_task}: <br/>{task.task_description}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+              My Adventure: 
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          {task.notes}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary" onClick={() =>
+        dispatch({ type: "DELETE_TASK", payload: task.id })}>
+          Delete
+        </Button>
+        {task.completed === null &&
+        <Button size="small" color="primary" onClick={ () => 
+        dispatch({ type: 'UPDATE_COMPLETE', payload: task.id })}>
+          Complete
+        </Button>}
+        {task.notes === null &&
+        <Button size="small" color="primary" onClick={(event) => viewNote(event, task)}>
+          Add Notes
+        </Button>}
+      </CardActions>
+    </Card>
+    )} 
+</div>
         </>
     )
 }

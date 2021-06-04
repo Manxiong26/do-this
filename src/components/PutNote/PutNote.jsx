@@ -74,7 +74,7 @@ const goBack = () => {
                 </div>
             }
             {editMode === false &&
-                <button onClick={handleEdit}>Edit</button>
+                <button onClick={handleEdit}>comment</button>
             }
             {editMode &&
                 <button type="submit">Save</button>

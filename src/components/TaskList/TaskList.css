@@ -1,0 +1,16 @@
+body {
+    background-image: url(https://wallsdesk.com/wp-content/uploads/2016/11/Night-Sky-Stars-HD-Desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 30rem 30rem 30rem;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    float:center;
+    margin-left: 500px;
+}
