@@ -18,35 +18,46 @@ function Nav() {
   }
 
   return (
-    <div className="nav">
-      <Link to="/home">
+    <>
+    <div className="nav-bar">
+  <Link to="/home">
         <h2 className="nav-title">Do This</h2>
-      </Link>
-      <div>
+      </Link></div>
+    <div className="nav">
+      
+      <div className="1">
         <Link className="navLink" to={loginLinkData.path}>
           {loginLinkData.text}
         </Link>
-
-        {user.id && (
-          <>
-
-          <Link className="navLink" to="/taskList">
-              Task List
-            </Link>
-
-            <Link className="navLink" to="/info">
-              Info Page
-            </Link>
-            <LogOutButton className="navLink" />
-          </>
-        )}
-
-
+        </div>
+        <div className="2">
         <Link className="navLink" to="/about">
           About
         </Link>
+        </div>
+        <div className="3">
+        {user.id && (
+          <>
+
+          <div className="4">
+            <Link className="navLink" to="/taskList">
+              Task List
+            </Link>
+            </div>
+            <div className="5">
+              <Link className="navLink" to="/info">
+              Info Page
+            </Link>
+            </div>
+            
+            <LogOutButton /> 
+            {/* className="navLink" */}
+          </>
+        )}
+        
       </div>
     </div>
+    </>
   );
 }
 
