@@ -1,5 +1,5 @@
 body {
-    background-image: url(https://wallsdesk.com/wp-content/uploads/2016/11/Night-Sky-Stars-HD-Desktop.jpg);
+    background-image: url(https://www.visitcookcounty.com/wp-content/uploads/2017/06/Northern-Lights_Summer-Cook-County-MN-Outdoor-Aurora-Borealis-TN-CCVB_CC-1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -12,5 +12,11 @@ body {
     justify-content: space-evenly;
     align-content: space-evenly;
     float:center;
-    margin-left: 500px;
+    margin-left: 100px;
+}
+
+.tasklist{
+    color:azure;
+    display: center;
+    float: center;
 }

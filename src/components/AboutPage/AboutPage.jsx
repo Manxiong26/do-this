@@ -1,15 +1,70 @@
 import React from 'react';
-
+//import './AboutPage.css';
 // This is one of our simplest components
 // It doesn't have local state,
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is'
 
-function AboutPage() {
+//material UI
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+function Copyright() {
   return (
-    <div className="container">
-      <div>
-        <p>Technologies used:</p>
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        DoThis
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: '100vh',
+  },
+  paper: {
+    margin: theme.spacing(8, 4),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: 'lightBlue',
+  },
+  avatar: {
+    margin: theme.spacing(30),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+
+function AboutPage() {
+
+  const classes = useStyles();
+  return (
+    <>
+<Grid container component="main" className={classes.root} className="Grid">
+<CssBaseline />
+{/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
+<Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+  <div className={classes.paper}>
+    <Typography component="h1" variant="h5">
+    <p>Technologies used:</p>
         <ul>
     <li>axios</li>
     <li>bcryptjs</li>
@@ -29,8 +84,15 @@ function AboutPage() {
     <li>redux-logger</li>
     <li>redux-saga</li>
         </ul>
-      </div>
-    </div>
+    </Typography>
+    
+      <Box mt={5}>
+        <Copyright />
+      </Box>
+  </div>
+</Grid>
+</Grid>
+</>
   );
 }
 

@@ -19,9 +19,10 @@ function Nav() {
 
   return (
     <>
+    <div className="nav-bar">
   <Link to="/home">
         <h2 className="nav-title">Do This</h2>
-      </Link>
+      </Link></div>
     <div className="nav">
       
       <div className="1">

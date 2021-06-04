@@ -1,14 +1,16 @@
 .nav {
   /* flex box layout */
-  background-color: white;
+  background-color: rgb(98, 129, 230);
   color: black;
   border: 2px solid rgb(194, 200, 223);
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  float: left;
+  margin: 0;
   /* these last two make the logout button in
-  the nav bar look like another link
+  the nav bar look like another link*/
 }
 
 .nav a {
@@ -16,17 +18,18 @@
 }
 
 .nav-title {
-  /* font-size: 24px;
+  font-size: 50px;
   font-weight: 700;
   color: #f2f2f2;
   padding-left: 10px;
-  margin: 0; */
+  margin: 0; 
+
 }
 
 .navLink {
-  background-color: white;
+  background-color: 155, 170, 219;
   color: black;
-  padding: 10px 20px;
+  padding: 1px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -40,3 +43,8 @@
   background-color: #3a5daa;
   
 }
+
+/* .nav-bar{
+  display: inline-flex;
+  float: left;
+} */

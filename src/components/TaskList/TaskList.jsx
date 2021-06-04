@@ -4,9 +4,6 @@ import { useHistory } from 'react-router-dom';
 import './TaskList.css'
 
 //material UI
-import Paper from "@material-ui/core/Paper";
-import yellow from "@material-ui/core/colors/yellow";
-import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
@@ -59,7 +56,7 @@ function TaskList() {
     const classes = useStyles();
     return (
         <>
-            <h1>TaskList</h1>
+            <h1 className="tasklist">TaskList</h1>
             {/* <ul>
                 {tasks.map(task =>
                     <li key={task.id}>{task.task_description}
@@ -107,14 +104,14 @@ function TaskList() {
 <div className="grid">
 {tasks.map(task =>
      <Card className={classes.root} key={task.id}>
-      <CardActionArea>
+      <CardActionArea onClick={(event) => viewNote(event, task)}>
         {/* <CardMedia
           component="img"
           alt="Contemplative Reptile"
           height="140"
           image="/static/images/cards/contemplative-reptile.jpg"
           title="Contemplative Reptile"
-          onClick={(event) => viewNote(event, task)}
+          
         /> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">

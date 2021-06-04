@@ -3,7 +3,43 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
+//material UI
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Typography from "@material-ui/core/Typography";
+import Grid from '@material-ui/core/Grid';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+import Link from '@material-ui/core/Link';
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        DoThis
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+}));
+
 function AddNote() {
+
+    const classes = useStyles();
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -58,15 +94,27 @@ const goBack = () => {
     return (
         <>
             {/* {JSON.stringify(note)} */}
-        <form onSubmit={saveEdit}>
+        {/* <form onSubmit={saveEdit}>
             
 
             { task  && editMode ?
                 <div>
                     <label>Note:</label>
-                    <input type="text" value={note}
-                        onChange={(event) => setNote(event.target.value)} />
-                </div>
+        <form className={classes.root} noValidate autoComplete="off">
+                    <TextField
+          id="outlined-multiline-static"
+          label="Multiline"
+          multiline
+          rows={4}
+          defaultValue="Memoir"
+          variant="outlined"
+          value={note}
+          type="text" 
+          onChange={(event) => setNote(event.target.value)} 
+        /></form> */}
+                    {/* <input 
+                        /> */}
+                {/* </div>
                 :
                 <div>
                     <label>Note: </label>
@@ -74,14 +122,87 @@ const goBack = () => {
                 </div>
             }
             {editMode === false &&
-                <button onClick={handleEdit}>comment</button>
+            <Button size="small" color="primary"
+                onClick={handleEdit}>
+                  Comment
+                </Button>
+                // <button onClick={handleEdit}>comment</button>
             }
             {editMode &&
-                <button type="submit">Save</button>
+            <Button size="small" color="primary"
+            type="submit">
+              Save
+            </Button>
+                // <button type="submit">Save</button>
             }
             
             </form>
-            <button onClick={goBack}>Cancel</button>
+            <Button size="small" color="primary"
+                onClick={goBack}>
+                  Cancel
+                </Button> */}
+            {/* <button onClick={goBack}>Cancel</button> */}
+
+            {/* <form className={classes.root} noValidate autoComplete="off">
+
+            </form> */}
+
+            
+            <Grid container component="main" className={classes.root} className="Grid">
+      <CssBaseline />
+      {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        
+      <form className={classes.form} noValidate onSubmit={saveEdit}>
+
+          { task  && editMode ?
+                <div>
+                    <label>Note:</label>
+        <form className={classes.root} noValidate autoComplete="off">
+                    <TextField
+          id="outlined-multiline-static"
+          label="Multiline"
+          multiline
+          rows={4}
+          defaultValue="Memoir"
+          variant="outlined"
+          value={note}
+          type="text" 
+          onChange={(event) => setNote(event.target.value)} 
+        /></form>
+            </div>
+                :
+                <div>
+                    <label>Note: </label>
+                    <span>{task.notes}</span>
+                </div>
+            }
+            {editMode === false &&
+            <Button size="small" color="primary"
+                onClick={handleEdit}>
+                  Add/Edit Note
+                </Button>
+                // <button onClick={handleEdit}>comment</button>
+            }
+            {editMode &&
+            <Button size="small" color="primary"
+            type="submit">
+              Save
+            </Button>
+                // <button type="submit">Save</button>
+            }
+            
+            </form>
+            <Button size="small" color="primary"
+                onClick={goBack}>
+                  Cancel
+                </Button>
+            <Box mt={5}>
+              <Copyright />
+            </Box>
+         
+      </Grid>
+    </Grid>
         </>
     )
 }

@@ -16,7 +16,7 @@ function UserPage() {
       <p>Your ID is: {user.id}</p> */}
       <TaskGenerator/>
       <br></br><br></br>
-      <LogOutButton className="btn" />
+      {/* <LogOutButton className="btn" /> */}
     </div>
   );
 }
