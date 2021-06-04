@@ -17,6 +17,6 @@ body {
 
 .tasklist{
     color:azure;
-    display: center;
-    float: center;
+    margin-bottom: 100px;
+
 }

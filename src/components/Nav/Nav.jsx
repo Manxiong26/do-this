@@ -50,7 +50,7 @@ function Nav() {
             </Link>
             </div>
             
-            <LogOutButton /> 
+            <LogOutButton className="button"/> 
             {/* className="navLink" */}
           </>
         )}

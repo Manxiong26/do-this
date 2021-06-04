@@ -8,7 +8,7 @@
   text-decoration: none;
   display: inline-block;
   float: left;
-  margin: 0;
+  margin: 20px;
   /* these last two make the logout button in
   the nav bar look like another link*/
 }
@@ -22,13 +22,13 @@
   font-weight: 700;
   color: #f2f2f2;
   padding-left: 10px;
-  margin: 0; 
+  margin: 15px; 
 
 }
 
 .navLink {
   background-color: 155, 170, 219;
-  color: black;
+  color: rgb(3, 3, 3);
   padding: 1px 15px;
   text-align: center;
   text-decoration: none;
@@ -36,12 +36,19 @@
   /* these last two make the logout button in
   the nav bar look like another link */
   cursor: pointer;
-  
+}
+.button{
+  border: none;
+  cursor: pointer;
+  background-color: rgb(98, 129, 230);
+  outline: 0;
+}
+.button:hover{
+  background-color: #3a5daa;
 }
 
 .navLink:hover {
   background-color: #3a5daa;
-  
 }
 
 /* .nav-bar{

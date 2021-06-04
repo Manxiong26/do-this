@@ -1,5 +1,5 @@
 import React from 'react';
-//import './AboutPage.css';
+import './AboutPage.css';
 // This is one of our simplest components
 // It doesn't have local state,
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -19,9 +19,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        DoThis
-      </Link>{' '}
+        Maneena Xiong
+      {' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -38,10 +37,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     backgroundColor: 'lightBlue',
-  },
-  avatar: {
-    margin: theme.spacing(30),
-    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -61,8 +56,8 @@ function AboutPage() {
 <Grid container component="main" className={classes.root} className="Grid">
 <CssBaseline />
 {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
-<Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-  <div className={classes.paper}>
+<Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square className="lala">
+  <div className={classes.paper} >
     <Typography component="h1" variant="h5">
     <p>Technologies used:</p>
         <ul>
