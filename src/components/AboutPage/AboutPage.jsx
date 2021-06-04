@@ -11,7 +11,7 @@ function AboutPage() {
       <div>
         <p>Technologies used:</p>
         <ul>
-          <li>axios</li>
+    <li>axios</li>
     <li>bcryptjs</li>
     <li>cookie-session</li>
     <li>dotenv</li>
