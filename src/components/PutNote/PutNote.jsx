@@ -161,10 +161,10 @@ const goBack = () => {
         <form className={classes.root} noValidate autoComplete="off">
                     <TextField
           id="outlined-multiline-static"
-          label="Multiline"
+          label="Memoir"
           multiline
           rows={4}
-          defaultValue="Memoir"
+          defaultValue=""
           variant="outlined"
           value={note}
           type="text" 

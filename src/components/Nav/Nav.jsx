@@ -14,7 +14,7 @@ function Nav() {
 
   if (user.id != null) {
     loginLinkData.path = '/user';
-    loginLinkData.text = 'Home';
+    loginLinkData.text = 'Get Task';
   }
 
   return (
@@ -50,7 +50,7 @@ function Nav() {
             </Link>
             </div>
             
-            <LogOutButton /> 
+            <LogOutButton className="button"/> 
             {/* className="navLink" */}
           </>
         )}

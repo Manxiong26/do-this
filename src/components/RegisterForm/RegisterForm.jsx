@@ -134,7 +134,7 @@ function RegisterForm() {
         <CssBaseline />
         {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Typography component="h1" variant="h5">{heading}</Typography>
+          <Typography component="h1" variant="h5"></Typography>
           {errors.registrationMessage && (
             <h3 className="alert" role="alert">
               {errors.registrationMessage}
@@ -207,9 +207,7 @@ function RegisterForm() {
 
               <Typography component="h1" variant="h5">
                 <p>DoThis is all about helping our users to get up and about in the state of Minnesota.
-                This app will deploy random tasks for users to do as much as they want by
-                continuing to accept tasks or reject to get a new task.
-                Our goal is to help users who wants to try new things or go on new adventures! </p>
+                Our goal is to help users who wants to try new things or go on new adventures with random tasks to do!</p>
                 <h2>Let's have Fun Friends!!!!</h2>
               </Typography>
             </form>

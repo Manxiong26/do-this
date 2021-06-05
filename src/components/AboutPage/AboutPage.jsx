@@ -20,7 +20,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        DoThis
+        Maneena Xiong
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: 'lightBlue',
+    backgroundColor: 'theme.palette.secondary.main',
   },
   avatar: {
     margin: theme.spacing(30),
