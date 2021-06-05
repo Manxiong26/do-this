@@ -14,10 +14,14 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 
+import Link from '@material-ui/core/Link';
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
+{' '}
         Maneena Xiong 
       {' '}
       {new Date().getFullYear()}
@@ -128,10 +132,10 @@ function TaskList() {
         /> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Task
+          {task.name_task}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          {task.name_task}: <br/>{task.task_description}
+          {task.task_description}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
               My Adventure: 
@@ -159,7 +163,8 @@ function TaskList() {
     </Card>
     )} 
 </div>
-<Box mt={5}>
+            <Box mt={5}>
+
               <Copyright />
             </Box>
         </>

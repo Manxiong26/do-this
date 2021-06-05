@@ -162,7 +162,8 @@ const goBack = () => {
           id="outlined-multiline-static"
           label="Memoir"
           multiline
-          rows={6}
+          rows={4}
+
           defaultValue=""
           variant="outlined"
           value={note}

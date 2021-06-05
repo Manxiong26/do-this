@@ -8,15 +8,17 @@ body {
 
 .grid{
     display: grid;
-    grid-template-columns: 30rem 30rem 30rem;
+    grid-template-columns: 25rem 25rem 25rem;
     justify-content: space-evenly;
     align-content: space-evenly;
-    float:center;
-    margin-left: 100px;
+    margin-left: 25px;
 }
 
 .tasklist{
     color:azure;
-    margin-bottom: 100px;
+    display: center;
+    float: center;
+    margin-left: 40rem;
+    padding: 50px;
 
 }
