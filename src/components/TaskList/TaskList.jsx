@@ -13,15 +13,17 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
+
 import Link from '@material-ui/core/Link';
+
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Maneena Xiong
-      </Link>{' '}
+{' '}
+        Maneena Xiong 
+      {' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -162,6 +164,7 @@ function TaskList() {
     )} 
 </div>
             <Box mt={5}>
+
               <Copyright />
             </Box>
         </>

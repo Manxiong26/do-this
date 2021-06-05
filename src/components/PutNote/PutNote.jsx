@@ -19,9 +19,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        DoThis
-      </Link>{' '}
+        Maneena Xiong
+      {' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -157,13 +156,14 @@ const goBack = () => {
 
           { task  && editMode ?
                 <div>
-                    <label>Note:</label>
+                    
         <form className={classes.root} noValidate autoComplete="off">
                     <TextField
           id="outlined-multiline-static"
           label="Memoir"
           multiline
           rows={4}
+
           defaultValue=""
           variant="outlined"
           value={note}
@@ -173,14 +173,14 @@ const goBack = () => {
             </div>
                 :
                 <div>
-                    <label>Note: </label>
+                    
                     <span>{task.notes}</span>
                 </div>
             }
             {editMode === false &&
             <Button size="small" color="primary"
                 onClick={handleEdit}>
-                  Add/Edit Note
+                  Add/Edit
                 </Button>
                 // <button onClick={handleEdit}>comment</button>
             }
@@ -191,12 +191,12 @@ const goBack = () => {
             </Button>
                 // <button type="submit">Save</button>
             }
-            
-            </form>
             <Button size="small" color="primary"
                 onClick={goBack}>
                   Cancel
                 </Button>
+            </form>
+            
             <Box mt={5}>
               <Copyright />
             </Box>
