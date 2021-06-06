@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './TaskList.css'
@@ -10,11 +10,8 @@ import CardActions from "@material-ui/core/CardActions";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-
-import Link from '@material-ui/core/Link';
 
 
 function Copyright() {
@@ -53,9 +50,6 @@ function TaskList() {
 
 
   const tasks = useSelector(store => store.task)
-
-  const [editMode, setEditMode] = useState(false)
-  const [note, setNote] = useState(false);
 
   const viewNote = (event, task) => {
     event.preventDefault();
@@ -130,26 +124,26 @@ function TaskList() {
                 <Typography variant="body2" color="textSecondary" component="p">
                   {task.task_description}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                {/* <Typography variant="body2" color="textSecondary" component="p">
                   My Adventure:
           </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                   {task.notes}
-                </Typography>
+                </Typography> */}
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary" onClick={() =>
+              <Button size="small" variant="outlined" color="primary" onClick={() =>
                 dispatch({ type: "DELETE_TASK", payload: task.id })}>
                 Delete
         </Button>
               {task.completed === null &&
-                <Button size="small" color="primary" onClick={() =>
+                <Button size="small" variant="outlined" color="primary" onClick={() =>
                   dispatch({ type: 'UPDATE_COMPLETE', payload: task.id })}>
                   Complete
         </Button>}
               {task.notes === null &&
-                <Button size="small" color="primary" onClick={(event) => viewNote(event, task)}>
+                <Button size="small" variant="outlined" color="primary" onClick={(event) => viewNote(event, task)}>
                   Add Notes
         </Button>}
             </CardActions>
