@@ -38,7 +38,7 @@ const {
 router.get('/', (req, res) => {
     // let sqlText = `SELECT * FROM task;`;
     let sqlText = `
-    SELECT user_id, task.name_task, task.task_description, completed, task_user.id, notes FROM task
+    SELECT user_id, task.name_task, task.task_description, completed, task_user.id, notes, task_img FROM task
     JOIN task_user ON task_user.task_id = task.id
     WHERE user_id = ${req.user.id};`;
     pool.query(sqlText)

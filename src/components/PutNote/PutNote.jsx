@@ -38,62 +38,62 @@ const useStyles = makeStyles((theme) => ({
 
 function AddNote() {
 
-    const classes = useStyles();
+  const classes = useStyles();
 
-    const dispatch = useDispatch();
-    const history = useHistory();
+  const dispatch = useDispatch();
+  const history = useHistory();
 
 
 
-    const [editMode, setEditMode] = useState(false)
-    const [note, setNote] = useState('');
+  const [editMode, setEditMode] = useState(false)
+  const [note, setNote] = useState('');
 
-    const task = useSelector(store => store.note)
-    // console.log('CHECKING THE TASK NOTE!!!', task);
+  const task = useSelector(store => store.note)
+  // console.log('CHECKING THE TASK NOTE!!!', task);
 
-    let { id } = useParams();
+  let { id } = useParams();
 
-    useEffect(() => {
-        // console.log('In useEffect param', id);
-        dispatch({ type: 'FETCH_NOTE', payload: id })
+  useEffect(() => {
+    // console.log('In useEffect param', id);
+    dispatch({ type: 'FETCH_NOTE', payload: id })
 
-    }, [])
+  }, [])
 
-    const handleEdit = () => {
-        //Turn on edit Mode
-        setEditMode(true)
+  const handleEdit = () => {
+    //Turn on edit Mode
+    setEditMode(true)
 
-        //Set values in state from our book reducer
-        setNote(task.notes);
+    //Set values in state from our book reducer
+    setNote(task.notes);
+  }
+
+  const saveEdit = (event) => {
+    event.preventDefault();
+    const updatedNote = {
+      id: task.id, //user cant edit, getting form reducer
+      notes: note, // Take the there from state, user may have changed
     }
 
-    const saveEdit = (event) => {
-        event.preventDefault();
-        const updatedNote = {
-            id: task.id, //user cant edit, getting form reducer
-            notes: note, // Take the there from state, user may have changed
-        }
+    // console.log('UPDATED NOTE INFO', updatedNote);
+    dispatch({ type: 'UPDATE_NOTE', payload: updatedNote })
 
-        // console.log('UPDATED NOTE INFO', updatedNote);
-        dispatch({ type: 'UPDATE_NOTE', payload: updatedNote })
+    // Turn off editMode
+    setEditMode(false)
 
-        // Turn off editMode
-        setEditMode(false)
+    //Navigate back, because this page wont refresh data from server
+    //history.push('/taskList');
 
-        //Navigate back, because this page wont refresh data from server
-        //history.push('/taskList');
+  }
 
-    }
-
-const goBack = () => {
+  const goBack = () => {
     console.log('Go Back taskList');
     history.push('/taskList')
-}
+  }
 
-    return (
-        <>
-            {/* {JSON.stringify(note)} */}
-        {/* <form onSubmit={saveEdit}>
+  return (
+    <>
+      {/* {JSON.stringify(note)} */}
+      {/* <form onSubmit={saveEdit}>
             
 
             { task  && editMode ?
@@ -111,9 +111,9 @@ const goBack = () => {
           type="text" 
           onChange={(event) => setNote(event.target.value)} 
         /></form> */}
-                    {/* <input 
+      {/* <input 
                         /> */}
-                {/* </div>
+      {/* </div>
                 :
                 <div>
                     <label>Note: </label>
@@ -140,71 +140,71 @@ const goBack = () => {
                 onClick={goBack}>
                   Cancel
                 </Button> */}
-            {/* <button onClick={goBack}>Cancel</button> */}
+      {/* <button onClick={goBack}>Cancel</button> */}
 
-            {/* <form className={classes.root} noValidate autoComplete="off">
+      {/* <form className={classes.root} noValidate autoComplete="off">
 
             </form> */}
 
-            
-            <Grid container component="main" className={classes.root} className="Grid">
-      <CssBaseline />
-      {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        
-      <form className={classes.form} noValidate onSubmit={saveEdit}>
 
-          { task  && editMode ?
-                <div>
-                    
-        <form className={classes.root} noValidate autoComplete="off">
-                    <TextField
-          id="outlined-multiline-static"
-          label="Memoir"
-          multiline
-          rows={4}
+      <Grid container component="main" className={classes.root} className="Grid">
+        <CssBaseline />
+        {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
 
-          defaultValue=""
-          variant="outlined"
-          value={note}
-          type="text" 
-          onChange={(event) => setNote(event.target.value)} 
-        /></form>
-            </div>
-                :
-                <div>
-                    
-                    <span>{task.notes}</span>
-                </div>
+          <form className={classes.form} noValidate onSubmit={saveEdit}>
+
+            {task && editMode ?
+              <div>
+
+                <form className={classes.root} noValidate autoComplete="off">
+                  <TextField
+                    id="outlined-multiline-static"
+                    label="Memoir"
+                    multiline
+                    rows={4}
+
+                    defaultValue=""
+                    variant="outlined"
+                    value={note}
+                    type="text"
+                    onChange={(event) => setNote(event.target.value)}
+                  /></form>
+              </div>
+              :
+              <div>
+
+                <span>{task.notes}</span>
+              </div>
             }
             {editMode === false &&
-            <Button size="small" color="primary"
+              <Button size="small" color="primary"
                 onClick={handleEdit}>
-                  Add/Edit
+                Add/Edit
                 </Button>
-                // <button onClick={handleEdit}>comment</button>
+              // <button onClick={handleEdit}>comment</button>
             }
             {editMode &&
-            <Button size="small" color="primary"
-            type="submit">
-              Save
+              <Button size="small" color="primary"
+                type="submit">
+                Save
             </Button>
-                // <button type="submit">Save</button>
+              // <button type="submit">Save</button>
             }
             <Button size="small" color="primary"
-                onClick={goBack}>
-                  Cancel
+              onClick={goBack}>
+              Cancel
                 </Button>
-            </form>
-            
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-         
+          </form>
+
+          <Box mt={5}>
+            <Copyright />
+          </Box>
+
+        </Grid>
       </Grid>
-    </Grid>
-        </>
-    )
+    </>
+  )
 }
 
 export default AddNote;

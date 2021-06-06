@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 //material UI
 import Avatar from '@material-ui/core/Avatar';
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    
+
   },
   avatar: {
     margin: theme.spacing(1),
@@ -71,7 +71,7 @@ function LoginForm() {
   const classes = useStyles();
   return (
     <>
-    {/* <form className="formPanel" onSubmit={login}>
+      {/* <form className="formPanel" onSubmit={login}>
       <h2>Login</h2>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
@@ -107,65 +107,65 @@ function LoginForm() {
       </div>
     </form> */}
 
-    <Grid container component="main" className={classes.root} onSubmit={login} className="Grid">
-<CssBaseline />
-{/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
-<Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-  <div className={classes.paper}>
-    <Avatar className={classes.avatar}>
-      <LockOutlinedIcon />
-    </Avatar>
-    <Typography component="h1" variant="h5">
-      Sign in
+      <Grid container component="main" className={classes.root} onSubmit={login} className="Grid">
+        <CssBaseline />
+        {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign in
     </Typography>
-    <form className={classes.form} noValidate>
-      <TextField
-        variant="outlined"
-        margin="normal"
-        required
-        fullWidth
-        id={username}
-        label="UserName"
-        name="username"
-        autoComplete="username"
-        autoFocus
-        onChange={(event) => setUsername(event.target.value)}
-      />
-      <TextField
-        variant="outlined"
-        margin="normal"
-        required
-        fullWidth
-        name="password"
-        label="Password"
-        type="password"
-        id={password}
-        autoComplete="current-password"
-        onChange={(event) => setPassword(event.target.value)}
-      />
-      
-      <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        color="primary"
-        className={classes.submit}
-      >
-        Sign In
+            <form className={classes.form} noValidate>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id={username}
+                label="UserName"
+                name="username"
+                autoComplete="username"
+                autoFocus
+                onChange={(event) => setUsername(event.target.value)}
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id={password}
+                autoComplete="current-password"
+                onChange={(event) => setPassword(event.target.value)}
+              />
+
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Sign In
       </Button>
-      <Grid container>
-        <Grid item>
-          <Link href="/registration" variant="body2" to="/registration" >
-            {"Don't have an account? Sign Up"}
-          </Link>
+              <Grid container>
+                <Grid item>
+                  <Link href="/registration" variant="body2" to="/registration" >
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
+              </Grid>
+              <Box mt={5}>
+              </Box>
+            </form>
+          </div>
         </Grid>
       </Grid>
-      <Box mt={5}>
-      </Box>
-    </form>
-  </div>
-</Grid>
-</Grid>
 
     </>
   );

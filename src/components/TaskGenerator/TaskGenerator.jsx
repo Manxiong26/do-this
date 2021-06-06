@@ -19,7 +19,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-        Maneena Xiong 
+        Maneena Xiong
       {' '}
       {new Date().getFullYear()}
       {'.'}
@@ -30,14 +30,6 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
-  },
-  image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -59,53 +51,53 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function TaskGenerator(){
+function TaskGenerator() {
 
-    const history = useHistory();
-    const dispatch = useDispatch();
-    const user = useSelector((store) => store.user);
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store.user);
 
 
-    useEffect(() => {
-        dispatch({ type: 'FETCH_RANDOM_TASK' });
-        
-    }, []);
+  useEffect(() => {
+    dispatch({ type: 'FETCH_RANDOM_TASK' });
+
+  }, []);
 
   //   useEffect(() => {
   //     setNewTask(task);
   // }, [task]);
 
-    
 
-    // const [user, setUser] = useState(0);
-    // const [taskId, setTaskId] = useState(0);
-    // const [userTask, setUserTask] = useState('');
-    // const [description, setDescription] = useState('');
 
-    // const [newTask, setNewTask] = useState({});
+  // const [user, setUser] = useState(0);
+  // const [taskId, setTaskId] = useState(0);
+  // const [userTask, setUserTask] = useState('');
+  // const [description, setDescription] = useState('');
 
-    // {user_id: user, task_id: taskId, name_task: userTask, task_description: description}
+  // const [newTask, setNewTask] = useState({});
 
-    const task = useSelector((store) => store.randomTaskReducer)
-console.log('CHECKING TASK IN THE TASK',task);
-console.log('CHECKING NEW TASK!!!!!!!', task);
+  // {user_id: user, task_id: taskId, name_task: userTask, task_description: description}
 
-const handleAccept = (action) => {
-  
-  dispatch({type: 'ADD_TASK', payload: task})
+  const task = useSelector((store) => store.randomTaskReducer)
+  console.log('CHECKING TASK IN THE TASK', task);
+  console.log('CHECKING NEW TASK!!!!!!!', task);
+
+  const handleAccept = (action) => {
+
+    dispatch({ type: 'ADD_TASK', payload: task })
     history.push('/taskList')
-}
+  }
 
-const handleTask = () => {
-    dispatch({type: 'FETCH_RANDOM_TASK'})
-    
-  } 
+  const handleTask = () => {
+    dispatch({ type: 'FETCH_RANDOM_TASK' })
+
+  }
 
   const classes = useStyles();
-    return(
-        <>
+  return (
+    <>
 
-{/* <form onSubmit={handleAccept}>
+      {/* <form onSubmit={handleAccept}>
         
             <div key={task.id}>
               <p>{task.name_task}: {task.task_description} </p>
@@ -119,48 +111,48 @@ const handleTask = () => {
              */}
 
       <Grid container component="main" className={classes.root} className="Grid">
-      <CssBaseline />
-      {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper} key={task.id}>
-          <Typography component="h1" variant="h5">
-          Welcome, {user.username}! <br/>
-            Today's Task:
+        <CssBaseline />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <div className={classes.paper} key={task.id}>
+            <Typography component="h1" variant="h5">
+              Welcome, {user.username}! <br />
+            Today's Task
           </Typography>
-          <Typography component="h1" variant="h5">
-          {task.name_task}:<br/> {task.task_description}
-          </Typography>
-          <Typography component="h1" variant="h5">
-          Address is:<br/> {task.location_id}
-          </Typography>
-          <form className={classes.form} noValidate onSubmit={handleAccept}>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Accept
+          <img  className="img" src={task.task_img}></img>
+            <Typography component="h1" variant="h5">
+              {task.name_task}:<br /> {task.task_description}
+            </Typography>
+            <Typography component="h1" variant="h5">
+              Address is:<br /> {task.location_id}
+            </Typography>
+            <form className={classes.form} noValidate onSubmit={handleAccept}>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Accept
             </Button>
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              onClick={handleTask}
-            >
-              Reject
+              <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+                onClick={handleTask}
+              >
+                Reject
             </Button>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
-        </div>
+              <Box mt={5}>
+                <Copyright />
+              </Box>
+            </form>
+          </div>
+        </Grid>
       </Grid>
-    </Grid>
-        </>
-    )
+    </>
+  )
 }
 
 export default TaskGenerator;

@@ -58,31 +58,31 @@ function InfoPage() {
   return (
     <>
 
-<Grid container component="main" className={classes.root} className="Grid">
-<CssBaseline />
-{/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
-<Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-  <div className={classes.paper}>
-    <Typography component="h1" variant="h5">
-    Info on how the app works!
+      <Grid container component="main" className={classes.root} className="Grid">
+        <CssBaseline />
+        {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <div className={classes.paper}>
+            <Typography component="h1" variant="h5">
+              Info on how the app works!
     </Typography>
-    <Typography component="h1" variant="h5">
-        <p>This app will deploy random tasks for users to do as much as they want by
+            <Typography component="h1" variant="h5">
+              <p>This app will deploy random tasks for users to do as much as they want by
         continuing to either accept a task or reject it to receive a new task.</p>
-        <p>User's can also write down a little memoir about what they did on certain task and 
+              <p>User's can also write down a little memoir about what they did on certain task and
         check off the task when completed.</p>
-        <p>User's will also be able to delete a task if they choose not to do said task after accepting
-          task.
+              <p>User's will also be able to delete a task if they choose not to do said task after accepting
+              task.
         </p>
-    </Typography>
-    
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-  </div>
-</Grid>
-</Grid>
-</>
+            </Typography>
+
+            <Box mt={5}>
+              <Copyright />
+            </Box>
+          </div>
+        </Grid>
+      </Grid>
+    </>
   );
 }
 

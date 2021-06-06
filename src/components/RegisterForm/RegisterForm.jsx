@@ -48,9 +48,9 @@ const useStyles = makeStyles((theme) => ({
 
 function RegisterForm() {
 
-    // make it so that the GET on get genres once as components loads
-    useEffect(() => {
-      //dispatch the saga 
+  // make it so that the GET on get genres once as components loads
+  useEffect(() => {
+    //dispatch the saga 
   }, []);
   const [heading, setHeading] = useState('DoThis');
   const [username, setUsername] = useState('');
@@ -82,7 +82,7 @@ function RegisterForm() {
   const classes = useStyles();
   return (
     <>
-    {/* <form className="formPanel" onSubmit={registerUser}>
+      {/* <form className="formPanel" onSubmit={registerUser}>
       <h2>Register User</h2>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
