@@ -19,7 +19,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-{' '}
+      {' '}
         Maneena Xiong
       {' '}
       {new Date().getFullYear()}
@@ -54,41 +54,41 @@ function AboutPage() {
   const classes = useStyles();
   return (
     <>
-<Grid container component="main" className={classes.root} className="Grid">
-<CssBaseline />
-{/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
-<Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square className="lala">
-  <div className={classes.paper} >
-    <Typography component="h1" variant="h5">
-    <p>Technologies used:</p>
-        <ul>
-    <li>axios</li>
-    <li>bcryptjs</li>
-    <li>cookie-session</li>
-    <li>dotenv</li>
-    <li>express</li>
-    <li>passport</li>
-    <li>passport-local</li>
-    <li>pg</li>
-    <li>prop-types</li>
-    <li>react</li>
-    <li>react-dom</li>
-    <li>react-redux</li>
-    <li>react-router-dom</li>
-    <li>react-scripts</li>
-    <li>redux</li>
-    <li>redux-logger</li>
-    <li>redux-saga</li>
-        </ul>
-    </Typography>
-    
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-  </div>
-</Grid>
-</Grid>
-</>
+      <Grid container component="main" className={classes.root} className="Grid">
+        <CssBaseline />
+        {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square className="lala">
+          <div className={classes.paper} >
+            <Typography component="h1" variant="h5">
+              <p>Technologies used:</p>
+              <ul>
+                <li>axios</li>
+                <li>bcryptjs</li>
+                <li>cookie-session</li>
+                <li>dotenv</li>
+                <li>express</li>
+                <li>passport</li>
+                <li>passport-local</li>
+                <li>pg</li>
+                <li>prop-types</li>
+                <li>react</li>
+                <li>react-dom</li>
+                <li>react-redux</li>
+                <li>react-router-dom</li>
+                <li>react-scripts</li>
+                <li>redux</li>
+                <li>redux-logger</li>
+                <li>redux-saga</li>
+              </ul>
+            </Typography>
+
+            <Box mt={5}>
+              <Copyright />
+            </Box>
+          </div>
+        </Grid>
+      </Grid>
+    </>
   );
 }
 

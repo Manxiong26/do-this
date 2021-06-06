@@ -1,6 +1,6 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import TaskGenerator from '../TaskGenerator/TaskGenerator';
 
 function UserPage() {
@@ -14,7 +14,7 @@ function UserPage() {
     <div className="container">
       {/* <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p> */}
-      <TaskGenerator/>
+      <TaskGenerator />
       <br></br><br></br>
       {/* <LogOutButton className="btn" /> */}
     </div>
