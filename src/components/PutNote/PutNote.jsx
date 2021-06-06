@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import './PutNote.css'
 
 //material UI
 import React from 'react';
@@ -13,7 +14,7 @@ import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
+
 
 function Copyright() {
   return (
@@ -162,7 +163,7 @@ function AddNote() {
                     id="outlined-multiline-static"
                     label="Memoir"
                     multiline
-                    rows={4}
+                    rows={5}
 
                     defaultValue=""
                     variant="outlined"
@@ -174,24 +175,24 @@ function AddNote() {
               :
               <div>
 
-                <span>{task.notes}</span>
+                <Box className="box">{task.notes}</Box>
               </div>
             }
             {editMode === false &&
-              <Button size="small" color="primary"
+              <Button size="small" variant="outlined" color="primary"
                 onClick={handleEdit}>
                 Add/Edit
                 </Button>
               // <button onClick={handleEdit}>comment</button>
             }
             {editMode &&
-              <Button size="small" color="primary"
+              <Button size="small" variant="outlined" color="primary"
                 type="submit">
                 Save
             </Button>
               // <button type="submit">Save</button>
             }
-            <Button size="small" color="primary"
+            <Button size="small" variant="outlined" color="primary"
               onClick={goBack}>
               Cancel
                 </Button>

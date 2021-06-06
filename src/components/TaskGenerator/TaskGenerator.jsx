@@ -8,7 +8,6 @@ import './TaskGenerator.css'
 
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -42,11 +41,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '50%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(1, 0, 1),
   },
 }));
 
@@ -129,7 +128,7 @@ function TaskGenerator() {
               <Button
                 type="submit"
                 fullWidth
-                variant="contained"
+                variant="outlined"
                 color="primary"
                 className={classes.submit}
               >
@@ -137,7 +136,7 @@ function TaskGenerator() {
             </Button>
               <Button
                 fullWidth
-                variant="contained"
+                variant="outlined"
                 color="primary"
                 className={classes.submit}
                 onClick={handleTask}

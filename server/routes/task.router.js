@@ -22,13 +22,11 @@ router.get('/', (req, res) => {
 
 router.get('/random', (req, res) => {
     // let sqlText = `SELECT * FROM task;`;
-    let sqlText = `SELECT *
-    FROM  (
-       SELECT DISTINCT 1 + trunc(random() * 10)::integer AS id
-       FROM   generate_series(1, 1) g
-       ) r
-    JOIN   task USING (id)
-    LIMIT  1;`;
+    let sqlText = `SELECT * FROM task where id >= (
+        SELECT random()*(max(id)-min(id))+min(id) FROM task
+      )
+      ORDER BY id
+      LIMIT 1;`;
     pool.query(sqlText)
     .then((result) => {
         console.log(sqlText);
