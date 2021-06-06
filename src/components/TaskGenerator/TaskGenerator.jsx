@@ -84,6 +84,7 @@ function TaskGenerator() {
   const handleAccept = (action) => {
 
     dispatch({ type: 'ADD_TASK', payload: task })
+    //dispatch({ type: 'FETCH_RANDOM_TASK' })
     history.push('/taskList')
   }
 
