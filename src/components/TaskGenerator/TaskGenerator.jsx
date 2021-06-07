@@ -85,6 +85,7 @@ function TaskGenerator() {
 
     dispatch({ type: 'ADD_TASK', payload: task })
     //dispatch({ type: 'FETCH_RANDOM_TASK' })
+    dispatch({ type: 'FETCH_TASK' });
     history.push('/taskList')
   }
 
