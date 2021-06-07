@@ -5,7 +5,17 @@ This web app is created for Minnesotan users who love to do activities on the we
 Other features in this app is, having the ability to add a note in that particular task and edit that note if later on users remember something else write something else in there. Users can also delete tasks they no longer want in their task list or simply just didn't want to do the task after accepting it.
 
 # WireFrames
-Login Page
+Get Task Page
+
+![Select Home Page](Pictures/GetTask.png)
+
+Task List Page
+
+![Select Home Page](Pictures/TaskList.png)
+
+Add/Edit Note Page
+
+![Select Home Page](Pictures/AddEditNote.png)
 
 # EDA Project
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
@@ -55,8 +65,3 @@ Before pushing to Heroku, run `npm run build` in terminal. This will create a bu
 - Run `npm start`
 - Navigate to `localhost:5000`
 
-
-
-## Update Documentation
-
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
