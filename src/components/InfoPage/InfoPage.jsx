@@ -71,7 +71,7 @@ function InfoPage() {
               <p>User's can also write down a little memoir about what they did on certain task and
         check off the task when completed.</p>
               <p>User's will also be able to delete a task if they choose not to do said task after accepting
-              task.
+              task or they just don't want to remember that day.
         </p>
             </Typography>
 
