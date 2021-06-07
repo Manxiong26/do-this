@@ -62,23 +62,16 @@ function AboutPage() {
             <Typography component="h1" variant="h5">
               <p>Technologies used:</p>
               <ul>
-                <li>axios</li>
-                <li>bcryptjs</li>
-                <li>cookie-session</li>
-                <li>dotenv</li>
-                <li>express</li>
-                <li>passport</li>
-                <li>passport-local</li>
-                <li>pg</li>
-                <li>prop-types</li>
-                <li>react</li>
-                <li>react-dom</li>
-                <li>react-redux</li>
-                <li>react-router-dom</li>
-                <li>react-scripts</li>
-                <li>redux</li>
-                <li>redux-logger</li>
-                <li>redux-saga</li>
+                <li>Express</li>
+                <li>React</li>
+                <li>Redux</li>
+                <li>Node</li>
+                <li>PostgreSql</li>
+                <li>Javascript</li>
+                <li>CSS</li>
+                <li>Material UI</li>
+                <li>Passport.js</li>
+                <li>and etc.</li>
               </ul>
             </Typography>
 
