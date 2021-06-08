@@ -7,15 +7,15 @@ Other features in this app is, having the ability to add a note in that particul
 # WireFrames
 Get Task Page
 
-![Select Home Page](Pictures/GetTask.png)
+![Get Task Page](Pictures/GetTask.png)
 
 Task List Page
 
-![Select Home Page](Pictures/TaskList.png)
+![Task List page](Pictures/TaskList.png)
 
 Add/Edit Note Page
 
-![Select Home Page](Pictures/AddEditNote.png)
+![Add/Edit Note Page](Pictures/AddEditNote.png)
 
 # EDA Project
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
