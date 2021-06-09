@@ -33,7 +33,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "supertest": "^6.1.3"
   },
   "browserslist": [
     ">0.2%",

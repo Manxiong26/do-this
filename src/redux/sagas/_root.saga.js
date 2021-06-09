@@ -2,7 +2,6 @@ import { all } from 'redux-saga/effects';
 import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
-import distanceSaga from './distance.saga';
 import randomTaskSaga from './randomTask.saga';
 import addTaskSaga from './addTask.saga';
 import taskSaga from './task.saga';
@@ -23,7 +22,6 @@ export default function* rootSaga() {
     loginSaga(), // login saga is now registered
     registrationSaga(),
     userSaga(),
-    distanceSaga(),
     randomTaskSaga(),
     addTaskSaga(),
     taskSaga(),
