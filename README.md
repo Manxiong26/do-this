@@ -5,6 +5,10 @@ This web app is created for Minnesotan users who love to do activities on the we
 Other features in this app is, having the ability to add a note in that particular task and edit that note if later on users remember something else write something else in there. Users can also delete tasks they no longer want in their task list or simply just didn't want to do the task after accepting it.
 
 # WireFrames
+DoThis App
+
+![Show DoThis App](Pictures/DoThis.gif)
+
 Get Task Page
 
 ![Get Task Page](Pictures/GetTask.png)
