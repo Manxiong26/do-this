@@ -1,7 +1,7 @@
 .box{
     box-sizing: border-box;
-    width: 635px; height: 300px; 
-    
+    width: 500px; height: 300px; 
+    /* border: dashed; */
     font-size: x-large;
     font-family: 'Times New Roman', Times, serif;
 }
