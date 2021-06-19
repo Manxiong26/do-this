@@ -154,7 +154,7 @@ function AddNote() {
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
 
           <form className={classes.form} noValidate onSubmit={saveEdit}>
-
+{/* conditional rendering to show either the note or to show an input box for users to write */}
             {task && editMode ?
               <div>
 
@@ -178,6 +178,7 @@ function AddNote() {
                 <Box className="box">{task.notes}</Box>
               </div>
             }
+            {/* if editmode is trigger users will see a comment box to edit the note */}
             {editMode === false &&
               <Button size="small" variant="outlined" color="primary"
                 onClick={handleEdit}>
