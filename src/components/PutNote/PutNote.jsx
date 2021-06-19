@@ -93,64 +93,8 @@ function AddNote() {
 
   return (
     <>
-      {/* {JSON.stringify(note)} */}
-      {/* <form onSubmit={saveEdit}>
-            
-
-            { task  && editMode ?
-                <div>
-                    <label>Note:</label>
-        <form className={classes.root} noValidate autoComplete="off">
-                    <TextField
-          id="outlined-multiline-static"
-          label="Multiline"
-          multiline
-          rows={4}
-          defaultValue="Memoir"
-          variant="outlined"
-          value={note}
-          type="text" 
-          onChange={(event) => setNote(event.target.value)} 
-        /></form> */}
-      {/* <input 
-                        /> */}
-      {/* </div>
-                :
-                <div>
-                    <label>Note: </label>
-                    <span>{task.notes}</span>
-                </div>
-            }
-            {editMode === false &&
-            <Button size="small" color="primary"
-                onClick={handleEdit}>
-                  Comment
-                </Button>
-                // <button onClick={handleEdit}>comment</button>
-            }
-            {editMode &&
-            <Button size="small" color="primary"
-            type="submit">
-              Save
-            </Button>
-                // <button type="submit">Save</button>
-            }
-            
-            </form>
-            <Button size="small" color="primary"
-                onClick={goBack}>
-                  Cancel
-                </Button> */}
-      {/* <button onClick={goBack}>Cancel</button> */}
-
-      {/* <form className={classes.root} noValidate autoComplete="off">
-
-            </form> */}
-
-
       <Grid container component="main" className={classes.root} className="Grid">
         <CssBaseline />
-        {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
 
           <form className={classes.form} noValidate onSubmit={saveEdit}>
@@ -191,7 +135,6 @@ function AddNote() {
                 type="submit">
                 Save
             </Button>
-              // <button type="submit">Save</button>
             }
             <Button size="small" variant="outlined" color="primary"
               onClick={goBack}>

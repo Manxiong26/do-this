@@ -62,21 +62,6 @@ function TaskGenerator() {
 
   }, []);
 
-  //   useEffect(() => {
-  //     setNewTask(task);
-  // }, [task]);
-
-
-
-  // const [user, setUser] = useState(0);
-  // const [taskId, setTaskId] = useState(0);
-  // const [userTask, setUserTask] = useState('');
-  // const [description, setDescription] = useState('');
-
-  // const [newTask, setNewTask] = useState({});
-
-  // {user_id: user, task_id: taskId, name_task: userTask, task_description: description}
-
   const task = useSelector((store) => store.randomTaskReducer)
   console.log('CHECKING TASK IN THE TASK', task);
   console.log('CHECKING NEW TASK!!!!!!!', task);
@@ -97,20 +82,6 @@ function TaskGenerator() {
   const classes = useStyles();
   return (
     <>
-
-      {/* <form onSubmit={handleAccept}>
-        
-            <div key={task.id}>
-              <p>{task.name_task}: {task.task_description} </p>
-              <p>Address is: </p>
-              {task.location_id}
-            </div>
-      <button value="submit">Accept</button>
-      </form>
-      
-      <button onClick={handleTask}>Reject</button>
-             */}
-
       <Grid container component="main" className={classes.root} className="Grid">
         <CssBaseline />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>

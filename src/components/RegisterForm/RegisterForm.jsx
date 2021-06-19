@@ -82,54 +82,6 @@ function RegisterForm() {
   const classes = useStyles();
   return (
     <>
-      {/* <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
-      {errors.registrationMessage && (
-        <h3 className="alert" role="alert">
-          {errors.registrationMessage}
-        </h3>
-      )}
-      <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="email">
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={email}
-            required
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
-      </div>
-    </form> */}
-
       <Grid container component="main" className={classes.root} onSubmit={registerUser} className="Grid">
         <CssBaseline />
         {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}

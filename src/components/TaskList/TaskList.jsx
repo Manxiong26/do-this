@@ -57,10 +57,6 @@ function TaskList() {
     history.push(`/note/${task.id}`)
   }
 
-  // const editNotes = () => {
-  //     setEditMode(true)
-
-  // }
 
   console.log('CHECKING TASKS REDUCERS', tasks);
 
@@ -68,50 +64,6 @@ function TaskList() {
   return (
     <>
       <h1 className="tasklist">TaskList</h1>
-      {/* <ul>
-                {tasks.map(task =>
-                    <li key={task.id}>{task.task_description}
-                        <button onClick={() =>
-                            dispatch({ type: "DELETE_TASK", payload: task.id })}>Delete</button>
-                        {task.completed === null &&
-                        <button onClick={ () => dispatch({ type: 'UPDATE_COMPLETE', payload: task.id })}>Complete</button>}
-                        <br/>
-                        
-                            <label>My Adventure:</label>
-                            <span>{task.notes}</span>
-                        
-                        <br/>
-                        <span><button onClick={(event) => viewNote(event, task)}>view</button></span>
-
-                    </li>
-                )}
-
-            </ul> */}
-      {/* <div>
-{tasks.map(task =>
-            <Paper className={classes.customBorderRadius} elevation={15}>
-        <Box p={6}>
-          <Typography variant="h5">Task</Typography>
-          <Typography>
-                    <span key={task.id}>{task.task_description}
-                        <button onClick={() =>
-                            dispatch({ type: "DELETE_TASK", payload: task.id })}>Delete</button>
-                        {task.completed === null &&
-                        <button onClick={ () => dispatch({ type: 'UPDATE_COMPLETE', payload: task.id })}>Complete</button>}
-                        <br/>
-                        
-                            <label>My Adventure:</label>
-                            <span>{task.notes}</span>
-                        
-                        <br/>
-                        <span><button onClick={(event) => viewNote(event, task)}>view</button></span>
-
-                    </span>
-          </Typography>
-        </Box>
-      </Paper>
-     )} 
-     </div> */}
       <div className="grid">
         {tasks.map(task =>
           <Card className={classes.root} key={task.id}>
@@ -124,12 +76,6 @@ function TaskList() {
                 <Typography variant="body2" color="textSecondary" component="p">
                   {task.task_description}
                 </Typography>
-                {/* <Typography variant="body2" color="textSecondary" component="p">
-                  My Adventure:
-          </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {task.notes}
-                </Typography> */}
               </CardContent>
             </CardActionArea>
             <CardActions>
