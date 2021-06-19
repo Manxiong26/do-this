@@ -9,17 +9,6 @@ DoThis App
 
 ![Show DoThis App](Pictures/DoThis.gif)
 
-Get Task Page
-
-![Get Task Page](Pictures/GetTask.png)
-
-Task List Page
-
-![Task List page](Pictures/TaskList.png)
-
-Add/Edit Note Page
-
-![Add/Edit Note Page](Pictures/AddEditNote.png)
 
 # EDA Project
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
