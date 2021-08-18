@@ -8,7 +8,7 @@ function* addTask(action) {
         yield axios.post('/api/task/', action.payload);
         console.log('CHECKING PAYLOAD', action.payload);
         
-        yield put({ type: 'FETCH_RANDOM' })
+        yield put({ type: 'FETCH_RANDOM_TASK' })
     } catch (error) {
         console.log('Error adding task', error);
     }
