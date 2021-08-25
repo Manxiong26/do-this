@@ -3,55 +3,21 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 //material UI
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { 
+  Button, 
+  Typography, 
+  TextField, 
+  Card 
+} from '@material-ui/core'
+import { useStyles } from '../classes';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-  },
-  image: {
-    backgroundImage: 'url(https://source.unsplash.com/1600x900/?nature)',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
-  paper: {
-    margin: theme.spacing(4, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '80%', // Fix IE 11 issue.
-    marginTop: theme.spacing(5),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
 
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(store => store.errors);
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   const login = (event) => {
     event.preventDefault();
@@ -68,69 +34,56 @@ function LoginForm() {
       dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
   }; // end login
-  const classes = useStyles();
+
   return (
     <>
-      <Grid container component="main" className={classes.root} onSubmit={login} className="Grid">
-        <CssBaseline />
-        {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <div className={classes.paper}>
-            <Avatar className={classes.avatar}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-    </Typography>
-            <form className={classes.form} noValidate>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id={username}
-                label="UserName"
-                name="username"
-                autoComplete="username"
-                autoFocus
-                onChange={(event) => setUsername(event.target.value)}
-              />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id={password}
-                autoComplete="current-password"
-                onChange={(event) => setPassword(event.target.value)}
-              />
+    <Card className={classes.loginForm}>
+      <form className={classes.form} onSubmit={login}>
+        <Typography className={classes.title} variant="h4">Login</Typography>
+        <div className={classes.cardContent}>
+          {errors.loginMessage && (
+            <h3 className={classes.alert} role="alert">
+              {errors.loginMessage}
+            </h3>
+          )}
+          <div className={classes.loginInputs}>
 
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Sign In
-      </Button>
-              <Grid container>
-                <Grid item>
-                  <Link href="/registration" variant="body2" to="/registration" >
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
-              <Box mt={5}>
-              </Box>
-            </form>
+            {/* when the button to log in is clicked, will take the value in this field for the dispatch */}
+            <TextField
+              className={classes.inputs}
+              variant="outlined"
+              placeholder="Username"
+              label="Username"
+              type="text"
+              name="username"
+              required
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+
+            {/* when the button to log in is clicked, will take the value in this field for the dispatch */}
+            <TextField
+              className={classes.inputs}
+              variant="outlined"
+              placeholder="Password"
+              label="Password"
+              type="password"
+              name="password"
+              required
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+
+            <div className={classes.btn}>
+
+              {/* button that when clicked, begins login process */}
+              <Button color="primary" variant="outlined" type="submit" name="submit">Log In</Button>
+            </div>
           </div>
-        </Grid>
-      </Grid>
-
+        </div>
+      </form>
+    </Card>
+  );
     </>
   );
 }

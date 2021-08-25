@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import './TaskGenerator.css'
-
-
-//material UI
-
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useEffect } from 'react';
+import LogOutButton from '../LogOutButton/LogOutButton';
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, Link, useParams } from "react-router-dom";
+import {
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Avatar,
+  Grid,
+  Box,
+  Button,
+  Divider,
+  Typography,
+  IconButton,
+} from "@material-ui/core";
+import { useStyles } from "../classes";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 
 function Copyright() {
   return (
@@ -26,28 +30,7 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-  },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(30),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '50%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(1, 0, 1),
-  },
-}));
+
 
 
 function TaskGenerator() {
@@ -82,7 +65,7 @@ function TaskGenerator() {
   const classes = useStyles();
   return (
     <>
-      <Grid container component="main" className={classes.root} className="Grid">
+      {/* <Grid container component="main" className={classes.root} className="Grid">
         <CssBaseline />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <div className={classes.paper} key={task.id}>
@@ -122,7 +105,51 @@ function TaskGenerator() {
             </form>
           </div>
         </Grid>
-      </Grid>
+      </Grid> */}
+
+
+      <Typography variant="h4" className={classes.welcome}>
+      Welcome, {user.username}
+    </Typography>
+      <Grid container direction="column">
+        <Grid item xs={12} sm={12} lg={12} >
+          <div className={classes.pageMargin}>
+            <Typography variant="h5" className={classes.title}>
+              Adventure of the Day
+            </Typography>
+            <p key={task.id}>
+              <img className={classes.image} src={task.task_img}></img>
+            </p>
+            <Typography variant="body2" className={classes.imageInfo}>
+              <b>{task.task_description}</b>  
+            </Typography>
+            <Typography variant="body2" className={classes.imageInfo}>
+              Address: {task.location_id}
+            </Typography>
+            <form className={classes.center} onSubmit={handleAccept}>
+            <Button 
+            type="submit"
+            variant="outlined"
+            color="primary"
+            className={classes.submit}
+            >
+              Accept
+            </Button>       
+              <Button
+                variant="outlined"
+                color="primary"
+                className={classes.marginLeft}
+                onClick={handleTask}
+              >
+                Reject
+            </Button>
+            </form>
+        </div>
+        </Grid>
+      </Grid>  
+
+
+
     </>
   )
 }

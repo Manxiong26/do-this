@@ -22,7 +22,10 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import TaskList from '../TaskList/TaskList';
 import PutNote from '../PutNote/PutNote'
 
-import './App.css';
+//import './App.css';
+
+//MUI THEME
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 
 function App() {
   const dispatch = useDispatch();
@@ -31,7 +34,18 @@ function App() {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
 
+//mui theme
+const theme = createMuiTheme({
+  palette: {
+  },
+  typography: {
+    Pacifico: 'Pacifico',
+    Lato: 'Lato',
+  }
+})
+
   return (
+    <ThemeProvider theme={theme}>
     <Router>
       <div>
         <Nav />
@@ -125,6 +139,7 @@ function App() {
         {/* <Footer /> */}
       </div>
     </Router>
+    </ThemeProvider>
   );
 }
 
