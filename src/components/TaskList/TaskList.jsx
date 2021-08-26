@@ -12,6 +12,10 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid'
+import DoneIcon from '@material-ui/icons/Done';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
 import { useStyles } from "../classes";
 
 
@@ -45,7 +49,11 @@ function TaskList() {
           <Box display="flex" flexWrap="wrap" justifyContent="center">
             {tasks.map(task =>
               <Card className={classes.card} key={task.id} >
-                <CardActionArea onClick={(event) => viewNote(event, task)}>
+                    {task.completed === null ?
+                    <CheckCircleOutlineIcon size="small" variant="outlined" color="primary" onClick={() =>
+                      dispatch({ type: 'UPDATE_COMPLETE', payload: task.id })} />
+                    : <CheckCircleIcon color="secondary" /> }
+                 <CardActionArea onClick={(event) => viewNote(event, task)}>
                   <CardContent>
                     <Typography variant="h6" className={classes.imageInfoCard}>
                       {task.name_task}
@@ -61,11 +69,6 @@ function TaskList() {
                     dispatch({ type: "DELETE_TASK", payload: task.id })}>
                     Delete
                   </Button>
-                  {task.completed === null &&
-                    <Button size="small" variant="outlined" color="primary" onClick={() =>
-                      dispatch({ type: 'UPDATE_COMPLETE', payload: task.id })}>
-                      Complete
-                    </Button>}
                   {task.notes === null &&
                     <Button size="small" variant="outlined" color="primary" onClick={(event) => viewNote(event, task)}>
                       Add Notes
