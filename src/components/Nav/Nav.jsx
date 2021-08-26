@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: "rgba(68, 15, 184,0.8)",
+    backgroundColor: "rgba(68, 15, 184,0.98)",
     boxShadow: "100px",
   },
   drawerHeader: {

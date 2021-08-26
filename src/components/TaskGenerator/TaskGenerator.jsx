@@ -6,21 +6,8 @@ import {
   Grid,
   Button,
   Typography,
-  Box,
 } from "@material-ui/core";
 import { useStyles } from "../classes";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="secondary" align="center">
-      {'Copyright © '}
-      Maneena Xiong
-      {' '}
-      {new Date().getFullYear()}
-      {' '}
-    </Typography>
-  );
-}
 
 function TaskGenerator() {
 
@@ -96,9 +83,6 @@ function TaskGenerator() {
           </div>
         </Grid>
       </Grid>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
     </>
   )
 }

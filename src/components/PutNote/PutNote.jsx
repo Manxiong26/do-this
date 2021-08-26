@@ -16,18 +16,6 @@ import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-        Maneena Xiong
-      {' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
@@ -141,11 +129,6 @@ function AddNote() {
               Cancel
                 </Button>
           </form>
-
-          <Box mt={5}>
-            <Copyright />
-          </Box>
-
         </Grid>
       </Grid>
     </>

@@ -14,18 +14,6 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid'
 import { useStyles } from "../classes";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="secondary" align="center">
-      {'Copyright © '}
-      {' '}
-      Maneena Xiong
-      {' '}
-      {new Date().getFullYear()}
-      {' '}
-    </Typography>
-  );
-}
 
 function TaskList() {
   const dispatch = useDispatch();
@@ -88,9 +76,6 @@ function TaskList() {
           </Box>
         </Grid>
       </Grid>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
     </>
   )
 }

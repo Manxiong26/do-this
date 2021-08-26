@@ -2,24 +2,7 @@ import React from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
 import { useStyles } from '../classes';
-import { 
-  Button,
-  Box,
-  Typography,
- } from '@material-ui/core';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="secondary" align="center">
-      {'Copyright © '}
-      {' '}
-      Maneena Xiong
-      {' '}
-      {new Date().getFullYear()}
-      {' '}
-    </Typography>
-  );
-}
+import { Button } from '@material-ui/core';
 
 function LoginPage() {
   const history = useHistory();
@@ -39,9 +22,6 @@ function LoginPage() {
         >
           Register
         </Button>
-        <Box mt={5}>
-        <Copyright />
-      </Box>
       </center>
     </div>
   );
