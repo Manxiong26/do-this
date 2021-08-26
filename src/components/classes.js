@@ -16,6 +16,13 @@ const useStyles = makeStyles((theme) => ({
         display: 'table-cell',
         textAlign: 'center',
       },
+    loginTitle: {
+      textAlign: 'center',
+        fontFamily: theme.typography.Pacifico,
+        textDecoration: 'underline',
+        color: "#000074",
+        marginBottom: '2%'
+    },
     tableContent: {
         marginTop: '5%',
       },
@@ -24,14 +31,14 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
       },
-    title: {
-        textAlign: 'center',
-        fontFamily: theme.typography.Pacifico,
-        textDecoration: 'underline',
-        color: theme.palette.primary.main,
-        marginBottom: '2%'
+    // title: {
+    //     textAlign: 'center',
+    //     fontFamily: theme.typography.Pacifico,
+    //     textDecoration: 'underline',
+    //     color: theme.palette.primary.main,
+    //     marginBottom: '2%'
     
-      },
+    //   },
     inputs: {
         marginTop: '5%',
         marginBottom: '2%',
@@ -46,6 +53,10 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: '6%',
         marginRight: '6%',
       },
+    pageMargin2: {
+        marginLeft: '5%',
+       
+    },
     title: {
         textAlign: 'center',
         fontFamily: theme.typography.Pacifico,
@@ -84,12 +95,13 @@ const useStyles = makeStyles((theme) => ({
 
       },
     paper: {
-        margin: theme.spacing(8, 4),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        background: 'lightBlue'
+      padding: theme.spacing(1),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
       },
+    paper2: {
+      flexGrow: 1,
+    },
     center: {
         textAlign: 'center',
         marginTop: '5%',
@@ -109,8 +121,13 @@ const useStyles = makeStyles((theme) => ({
       color: '#e01616',
       fontSize: '0.8rem',
     },
-    submit: {
+      submit: {
       margin: theme.spacing(1, 0, 1),
+    },
+    card: {
+      maxWidth: 345,
+      margin: theme.spacing(5),
+      maxHeight: 550,
     },
 }));
 

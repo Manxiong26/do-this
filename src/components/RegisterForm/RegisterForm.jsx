@@ -52,7 +52,7 @@ function RegisterForm() {
 
       {/* when the form is submitted, will call the registerUser function with the inputs entered by the user */}
       <form className={classes.form} onSubmit={registerUser}>
-        <Typography className={classes.title} variant="h4">
+        <Typography className={classes.loginTitle} variant="h4">
           Register
         </Typography>
         <div className={classes.cardContent}>

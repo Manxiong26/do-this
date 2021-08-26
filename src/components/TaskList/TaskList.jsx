@@ -7,16 +7,16 @@ import './TaskList.css'
 import Typography from "@material-ui/core/Typography";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-
+import Grid from '@material-ui/core/Grid'
+import { useStyles } from "../classes";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="secondary" align="center">
       {'Copyright © '}
       {' '}
         Maneena Xiong
@@ -27,19 +27,6 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 345,
-    margin: theme.spacing(5),
-  },
-  customBorderRadius: {
-    borderRadius: 30,
-    margin: theme.spacing(5),
-    width: theme.spacing(100),
-    height: theme.spacing(30),
-  }
-}));
-
 function TaskList() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -47,7 +34,6 @@ function TaskList() {
   useEffect(() => {
     dispatch({ type: 'FETCH_TASK' });
   }, []);
-
 
   const tasks = useSelector(store => store.task)
 
@@ -57,21 +43,25 @@ function TaskList() {
     history.push(`/note/${task.id}`)
   }
 
-
   console.log('CHECKING TASKS REDUCERS', tasks);
 
   const classes = useStyles();
+
   return (
     <>
-      <h1 className="tasklist">TaskList</h1>
-      <div className="grid">
+<Typography variant="h4" className={classes.title}>
+                My Adventures
+            </Typography>
+    <Grid container spacing={2} >
+      <Grid container item xs={12} spacing={3}>  
+      <Box display="flex" flexWrap="wrap" justifyContent="center">
         {tasks.map(task =>
-          <Card className={classes.root} key={task.id}>
+          <Card className={classes.card} key={task.id} >
             <CardActionArea onClick={(event) => viewNote(event, task)}>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
                   {task.name_task} 
-                  <img className="img" src={task.task_img}></img>
+                  <img className={classes.image} src={task.task_img}></img>
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                   {task.task_description}
@@ -95,11 +85,12 @@ function TaskList() {
             </CardActions>
           </Card>
         )}
-      </div>
-      <Box mt={5}>
-
-        <Copyright />
-      </Box>
+        </Box>
+      </Grid>
+    </Grid>
+    <Box mt={5}>
+          <Copyright />
+        </Box>
     </>
   )
 }

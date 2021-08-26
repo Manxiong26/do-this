@@ -130,14 +130,14 @@ function TaskGenerator() {
             <Button 
             type="submit"
             variant="outlined"
-            color="primary"
+            color="secondary"
             className={classes.submit}
             >
               Accept
             </Button>       
               <Button
                 variant="outlined"
-                color="primary"
+                color="secondary"
                 className={classes.marginLeft}
                 onClick={handleTask}
               >

@@ -39,7 +39,7 @@ function LoginForm() {
     <>
     <Card className={classes.loginForm}>
       <form className={classes.form} onSubmit={login}>
-        <Typography className={classes.title} variant="h4">Login</Typography>
+        <Typography className={classes.loginTitle} variant="h4">Login</Typography>
         <div className={classes.cardContent}>
           {errors.loginMessage && (
             <h3 className={classes.alert} role="alert">
