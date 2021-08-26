@@ -22,7 +22,7 @@ function Copyright() {
       Maneena Xiong
       {' '}
       {new Date().getFullYear()}
-      {'.'}
+      {' '}
     </Typography>
   );
 }

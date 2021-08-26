@@ -17,7 +17,7 @@ function Copyright() {
       Maneena Xiong
       {' '}
       {new Date().getFullYear()}
-      {'.'}
+      {' '}
     </Typography>
   );
 }
@@ -64,6 +64,9 @@ function TaskGenerator() {
               Adventure of the Day
             </Typography>
             <p key={task.id}>
+              <Typography variant="h6" className={classes.imageInfo}>
+              <b>{task.name_task}</b>
+            </Typography>
               <img className={classes.image} src={task.task_img}></img>
             </p>
             <Typography variant="body2" className={classes.imageInfo}>

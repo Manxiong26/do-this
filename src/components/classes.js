@@ -83,8 +83,11 @@ const useStyles = makeStyles((theme) => ({
     imageInfo: {
       textAlign: 'center',
       color: "#FFFFFF",
-
       },
+    imageInfoCard: {
+      textAlign: 'center',
+      color: 'primary'
+    },
     paper: {
       padding: theme.spacing(1),
       textAlign: 'center',

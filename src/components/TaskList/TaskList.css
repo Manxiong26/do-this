@@ -1,7 +1,7 @@
 body {
-    background-image: url(https://www.visitcookcounty.com/wp-content/uploads/2017/06/Northern-Lights_Summer-Cook-County-MN-Outdoor-Aurora-Borealis-TN-CCVB_CC-1.jpg);
+    background-image: url(https://www.visitcookcounty.com/wp-content/uploads/2017/06/Northern-Lights_Summer-Cook-County-MN-Outdoor-Aurora-Borealis-TN-CCVB_CC-1.jpg),linear-gradient(to bottom right, purple, blue) ;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    
-}
+    height: 200px;
+  }

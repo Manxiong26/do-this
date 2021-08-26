@@ -92,7 +92,6 @@ function LoginForm() {
         </div>
       </form>
     </Card>
-  );
     </>
   );
 }
