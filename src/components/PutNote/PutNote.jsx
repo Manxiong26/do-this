@@ -2,28 +2,18 @@ import { useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import './PutNote.css'
 
 //material UI
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from "@material-ui/core/Typography";
-import Grid from '@material-ui/core/Grid';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
+import Card from '@material-ui/core/Card';
+import { useStyles } from "../classes";
 
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
 
 function AddNote() {
 
@@ -31,8 +21,6 @@ function AddNote() {
 
   const dispatch = useDispatch();
   const history = useHistory();
-
-
 
   const [editMode, setEditMode] = useState(false)
   const [note, setNote] = useState('');
@@ -69,9 +57,6 @@ function AddNote() {
     // Turn off editMode
     setEditMode(false)
 
-    //Navigate back, because this page wont refresh data from server
-    //history.push('/taskList');
-
   }
 
   const goBack = () => {
@@ -81,56 +66,57 @@ function AddNote() {
 
   return (
     <>
-      <Grid container component="main" className={classes.root} className="Grid">
-        <CssBaseline />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-
-          <form className={classes.form} noValidate onSubmit={saveEdit}>
-{/* conditional rendering to show either the note or to show an input box for users to write */}
-            {task && editMode ?
-              <div>
-
-                <form className={classes.root} noValidate autoComplete="off">
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Memoir"
-                    multiline
-                    rows={5}
-
-                    defaultValue=""
-                    variant="outlined"
-                    value={note}
-                    type="text"
-                    onChange={(event) => setNote(event.target.value)}
-                  /></form>
-              </div>
-              :
-              <div>
-
-                <Box className="box">{task.notes}</Box>
-              </div>
-            }
-            {/* if editmode is trigger users will see a comment box to edit the note */}
-            {editMode === false &&
-              <Button size="small" variant="outlined" color="primary"
-                onClick={handleEdit}>
-                Add/Edit
+      <Card className={classes.loginForm}>
+        <form className={classes.form} noValidate onSubmit={saveEdit}>
+          <Typography className={classes.loginTitle} variant="h4">
+            Adventure Memoirs
+          </Typography>
+          <div className={classes.cardContent}>
+            <CardContent className={classes.card} >
+              {/* conditional rendering to show either the note or to show an input box for users to write */}
+              {task && editMode ?
+                <div>
+                  <form className={classes.root} noValidate autoComplete="off">
+                    <TextField
+                      id="outlined-multiline-static"
+                      label="Memoir"
+                      multiline
+                      rows={5}
+                      defaultValue=""
+                      variant="outlined"
+                      value={note}
+                      type="text"
+                      onChange={(event) => setNote(event.target.value)}
+                    /></form>
+                </div>
+                :
+                <div>
+                  <Box className="box" flexWrap="wrap">{task.notes}</Box>
+                </div>
+              }
+            </CardContent>
+            <CardActions className={classes.card} >
+              {/* if editmode is trigger users will see a comment box to edit the note */}
+              {editMode === false &&
+                <Button size="small" variant="outlined" color="primary"
+                  onClick={handleEdit}>
+                  Add/Edit
                 </Button>
-              // <button onClick={handleEdit}>comment</button>
-            }
-            {editMode &&
-              <Button size="small" variant="outlined" color="primary"
-                type="submit">
-                Save
-            </Button>
-            }
-            <Button size="small" variant="outlined" color="primary"
-              onClick={goBack}>
-              Cancel
+              }
+              {editMode &&
+                <Button size="small" variant="outlined" color="primary"
+                  type="submit">
+                  Save
                 </Button>
-          </form>
-        </Grid>
-      </Grid>
+              }
+              <Button size="small" variant="outlined" color="primary"
+                onClick={goBack}>
+                Cancel
+              </Button>
+            </CardActions>
+          </div>
+        </form>
+      </Card>
     </>
   )
 }
