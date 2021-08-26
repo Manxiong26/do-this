@@ -39,7 +39,9 @@ function LoginForm() {
     <>
     <Card className={classes.loginForm}>
       <form className={classes.form} onSubmit={login}>
-        <Typography className={classes.loginTitle} variant="h4">Login</Typography>
+        <Typography className={classes.loginTitle} variant="h4">
+          Login
+          </Typography>
         <div className={classes.cardContent}>
           {errors.loginMessage && (
             <h3 className={classes.alert} role="alert">
@@ -77,7 +79,14 @@ function LoginForm() {
             <div className={classes.btn}>
 
               {/* button that when clicked, begins login process */}
-              <Button color="primary" variant="outlined" type="submit" name="submit">Log In</Button>
+              <Button 
+                color="primary" 
+                variant="outlined" 
+                type="submit" 
+                name="submit"
+              >
+                Log In
+                </Button>
             </div>
           </div>
         </div>

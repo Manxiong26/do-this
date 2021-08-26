@@ -17,6 +17,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import KeyboardArrowLeftRoundedIcon from '@material-ui/icons/KeyboardArrowLeftRounded';
+import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
@@ -31,8 +33,9 @@ const styles = {
     position: 'fixed',
   },
   link: {
-    color: 'black',
+    color: '#f0223d',
     textDecoration: 'none',
+    fontSize: 100,
   }
 };
 
@@ -52,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    backgroundColor: "rgba(52, 27, 161,0.5)",
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -71,6 +75,8 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: "rgba(68, 15, 184,0.8)",
+    boxShadow: "100px",
   },
   drawerHeader: {
     display: 'flex',
@@ -132,46 +138,6 @@ function Nav() {
   };
   return (
     <>
-      {/* <div className="nav-bar">
-        <Link to="/home">
-          <h2 className="nav-title">Do This</h2>
-        </Link></div>
-      <div className="nav">
-
-        <div className="1">
-          <Link className="navLink" to={loginLinkData.path}>
-            {loginLinkData.text}
-          </Link>
-        </div>
-        <div className="2">
-          <Link className="navLink" to="/about">
-            About
-        </Link>
-        </div>
-        <div className="3">
-          {user.id && (
-            <>
-
-              <div className="4">
-                <Link className="navLink" to="/taskList">
-                  Task List
-            </Link>
-              </div>
-              <div className="5">
-                <Link className="navLink" to="/info">
-                  Info Page
-            </Link>
-              </div>
-
-              <LogOutButton className="button" />
-            </>
-          )}
-
-        </div>
-      </div> */}
-
-
-
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
@@ -180,7 +146,6 @@ function Nav() {
             [classes.appBarShift]: open,
           })}
         >
-
           {/* button to open the drawer */}
           <Toolbar>
             <IconButton
@@ -190,7 +155,7 @@ function Nav() {
               edge="start"
               className={clsx(classes.menuButton, open && classes.hide)}
             >
-              <MenuIcon />
+              <MenuRoundedIcon />
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap>
               DoThis
@@ -213,36 +178,36 @@ function Nav() {
 
             {/* changes direction of arrow to open/close based on if the drawer is already open */}
             <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+              {theme.direction === 'ltr' ? <KeyboardArrowLeftRoundedIcon /> : <ChevronRightIcon />}
             </IconButton>
           </div>
           <Divider />
           {/* When log in user's will see home option */}
-        {user.id &&
-        <>
-          {/* item that when clicked, will route user to the home page and close the drawer */}
-          <Link to='/home' style={styles.link} onClick={handleDrawerClose}>
-            <List>
-              <ListItem button key={'Home'}>
-                <ListItemText primary={'Home'} />
-              </ListItem>
-            </List>
-          </Link>
-          <Link to='/taskList' style={styles.link} onClick={handleDrawerClose}>
-            <List>
-          <ListItem button key={'My Adventures'}>
-                <ListItemText primary={'My Adventures'} />
-                </ListItem>
-          </List>
-          </Link>
-          <Link to='/info' style={styles.link} onClick={handleDrawerClose}>
-            <List>
-          <ListItem button key={'info'}>
-                <ListItemText primary={'info'} />
-                </ListItem>
-            </List>
-          </Link>
-          </>
+          {user.id &&
+            <>
+              {/* item that when clicked, will route user to the home page and close the drawer */}
+              <Link to='/home' style={styles.link} onClick={handleDrawerClose}>
+                <List>
+                  <ListItem button key={'Home'}>
+                    <ListItemText primary={'Home'} />
+                  </ListItem>
+                </List>
+              </Link>
+              <Link to='/taskList' style={styles.link} onClick={handleDrawerClose}>
+                <List>
+                  <ListItem button key={'My Adventures'}>
+                    <ListItemText primary={'My Adventures'} />
+                  </ListItem>
+                </List>
+              </Link>
+              <Link to='/info' style={styles.link} onClick={handleDrawerClose}>
+                <List>
+                  <ListItem button key={'info'}>
+                    <ListItemText primary={'info'} />
+                  </ListItem>
+                </List>
+              </Link>
+            </>
           }
 
           {/* item that when clicked, will route user to the about page and close the drawer */}
@@ -254,36 +219,36 @@ function Nav() {
             </List>
           </Link>
           {/* This will show when users are logged out else it wont show so it wont have 2 sign in/out  */}
-         {user.id ? 
-         (<></>) 
-         : 
-         (
-          <Link to='/login' style={styles.link} onClick={handleDrawerClose,
-            () => dispatch({ type: 'LOGOUT' })}>
-              <List>
-            {/* button to log in/log out, will also close drawer when clicked */}
-            
-              <ListItem button key={'Sign In/Out'}>
-                <ListItemText primary={'Sign In/Out'} onClick={handleDrawerClose} />
-              </ListItem>
-            </List>
-          </Link>
-          )}
+          {user.id ?
+            (<></>)
+            :
+            (
+              <Link to='/login' style={styles.link} onClick={handleDrawerClose,
+                () => dispatch({ type: 'LOGOUT' })}>
+                <List>
+                  {/* button to log in/log out, will also close drawer when clicked */}
 
-          
+                  <ListItem button key={'Sign In/Out'}>
+                    <ListItemText primary={'Sign In/Out'} onClick={handleDrawerClose} />
+                  </ListItem>
+                </List>
+              </Link>
+            )}
+
+
           {user.id && (
             <>
-            {/* when clicked, will log the user out and redirect them to the login page */}
-          <Link to='/login' style={styles.link} onClick={handleDrawerClose,
-            () => dispatch({ type: 'LOGOUT' })}>
+              {/* when clicked, will log the user out and redirect them to the login page */}
+              <Link to='/login' style={styles.link} onClick={handleDrawerClose,
+                () => dispatch({ type: 'LOGOUT' })}>
 
-            {/* button to log in/log out, will also close drawer when clicked */}
-            <List>
-              <ListItem button key={'Sign In/Out'}>
-                <ListItemText primary={'Sign In/Out'} onClick={handleDrawerClose} />
-              </ListItem>
-            </List>
-          </Link>
+                {/* button to log in/log out, will also close drawer when clicked */}
+                <List>
+                  <ListItem button key={'Sign In/Out'}>
+                    <ListItemText primary={'Sign In/Out'} onClick={handleDrawerClose} />
+                  </ListItem>
+                </List>
+              </Link>
             </>
           )}
 
@@ -310,13 +275,7 @@ function Nav() {
           <div className={classes.drawerHeader} />
         </main>
       </div>
-
-
-
     </>
-
-
-
   );
 }
 

@@ -37,7 +37,10 @@ function App() {
 //mui theme
 const theme = createMuiTheme({
   palette: {
-  },
+    primary: {
+      main: "#341ba1",
+  }
+},
   typography: {
     Pacifico: 'Pacifico',
     Lato: 'Lato',

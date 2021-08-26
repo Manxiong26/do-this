@@ -31,14 +31,6 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
       },
-    // title: {
-    //     textAlign: 'center',
-    //     fontFamily: theme.typography.Pacifico,
-    //     textDecoration: 'underline',
-    //     color: theme.palette.primary.main,
-    //     marginBottom: '2%'
-    
-    //   },
     inputs: {
         marginTop: '5%',
         marginBottom: '2%',
@@ -55,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
       },
     pageMargin2: {
         marginLeft: '5%',
-       
     },
     title: {
         textAlign: 'center',

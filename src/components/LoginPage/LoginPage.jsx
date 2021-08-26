@@ -8,12 +8,12 @@ function LoginPage() {
   const history = useHistory();
   const classes = useStyles()
   return (
-    <div>
+    <div><center>
       <LoginForm />
-
-      <center>
-        {/* button that when clicked, takes user to registration page to create an account */}
+        {/* button that when clicked, takes user to 
+        registration page to create an account */}
         <Button
+        color="secondary"
           type="button"
           className={classes.btn}
           onClick={() => {

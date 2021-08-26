@@ -10,11 +10,12 @@ function RegisterPage() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div><center>
       <RegisterForm />
-
-      <center>
+      {/* button that when clicked, takes user to 
+        login page */}
         <Button
+          color="secondary"
           type="button"
           className={classes.btn}
           onClick={() => {
