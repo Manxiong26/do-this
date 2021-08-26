@@ -47,11 +47,11 @@ function TaskList() {
               <Card className={classes.card} key={task.id} >
                 <CardActionArea onClick={(event) => viewNote(event, task)}>
                   <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography variant="h6" className={classes.imageInfoCard}>
                       {task.name_task}
                       <img className={classes.image} src={task.task_img}></img>
                     </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
+                    <Typography variant="body2" className={classes.imageInfoCard}>
                       {task.task_description}
                     </Typography>
                   </CardContent>
