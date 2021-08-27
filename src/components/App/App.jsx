@@ -22,8 +22,6 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import TaskList from '../TaskList/TaskList';
 import PutNote from '../PutNote/PutNote'
 
-//import './App.css';
-
 //MUI THEME
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 
@@ -139,7 +137,7 @@ const theme = createMuiTheme({
             <h1>404</h1>
           </Route>
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </Router>
     </ThemeProvider>

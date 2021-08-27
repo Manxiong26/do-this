@@ -18,6 +18,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import KeyboardArrowLeftRoundedIcon from '@material-ui/icons/KeyboardArrowLeftRounded';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -75,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: "rgba(68, 15, 184,0.8)",
+    backgroundColor: "rgba(68, 15, 184,0.98)",
     boxShadow: "100px",
   },
   drawerHeader: {
@@ -177,8 +178,10 @@ function Nav() {
           <div className={classes.drawerHeader}>
 
             {/* changes direction of arrow to open/close based on if the drawer is already open */}
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'ltr' ? <KeyboardArrowLeftRoundedIcon /> : <ChevronRightIcon />}
+            <IconButton 
+              color="secondary"
+              onClick={handleDrawerClose}>
+              {theme.direction === 'ltr' ? <ArrowBackIosIcon /> : <ChevronRightIcon />}
             </IconButton>
           </div>
           <Divider />
@@ -213,8 +216,8 @@ function Nav() {
           {/* item that when clicked, will route user to the about page and close the drawer */}
           <Link to='/about' style={styles.link} onClick={handleDrawerClose}>
             <List>
-              <ListItem button key={'About Us'}>
-                <ListItemText primary={'About Us'} />
+              <ListItem button key={'Technology Used'}>
+                <ListItemText primary={'Technology Used'} />
               </ListItem>
             </List>
           </Link>

@@ -12,11 +12,8 @@ function UserPage() {
 
   return (
     <div className="container">
-      {/* <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p> */}
       <TaskGenerator />
       <br></br><br></br>
-      {/* <LogOutButton className="btn" /> */}
     </div>
   );
 }
