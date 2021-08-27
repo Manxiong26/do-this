@@ -10,7 +10,7 @@ background image does not belong to me
 # WireFrames
 DoThis App
 
-![Show DoThis App](Pictures/DoThisVid.gif)
+![Show DoThis App](Pictures/DoThis.gif)
 
 
 # EDA Project
